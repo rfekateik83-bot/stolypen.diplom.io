@@ -1,0 +1,3935 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>МОДЕРНИЗАЦИЯ РОССИЙСКОЙ ИМПЕРИИ</title>
+<style>
+/* ===================== ОСНОВА ===================== */
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    display:flex;
+    background:#0f172a;
+    color:#fff;
+}
+
+main{
+    flex:1;
+    height:100vh;
+}
+
+h1{
+    text-align:center;
+    max-width:900px;
+    margin:0 auto;
+}
+
+/* ===================== МЕНЮ ===================== */
+.sidebar{
+    width:220px;
+    background:#020617;
+    height:100vh;
+    padding:20px;
+}
+
+.sidebar h2{
+    color:#38bdf8;
+}
+
+.sidebar a{
+    display:block;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+    color:#fff;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.sidebar a:hover{
+    background:#38bdf8;
+    color:#000;
+}
+
+/* ===================== СЕКЦИИ ===================== */
+.section{
+    display:none;
+    padding:40px;
+    background:#0f172a;
+}
+
+.section.active{
+    display:block;
+}
+
+/* ===================== АНИМАЦИИ ===================== */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(15px);}
+}
+
+/* ===================== ГЛАВНАЯ ===================== */
+.home{
+    min-height:100vh;
+    background:url('stolypen.jpg') center/cover no-repeat;
+}
+
+.overlay{
+    background:rgba(0,0,0,.65);
+    padding:50px;
+    border-radius:22px;
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+    text-align:center;
+    animation:fadeIn 1.2s ease forwards;
+}
+
+.overlay p{
+    font-size:18px;
+    margin-top:20px;
+}
+
+.home-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    margin-top:60px;
+}
+
+.home-card{
+    background:#38bdf8;
+    color:#000;
+    padding:40px;
+    border-radius:18px;
+    font-size:30px;
+    font-weight:900;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+.home-card:hover{
+    transform:scale(1.06);
+    background:#fff;
+}
+
+/* ===================== БИОГРАФИЯ ===================== */
+#bio{
+    background:linear-gradient(135deg,#1b1b1b,#3b1f1f,#6b4a1f);
+}
+
+.bio-hero{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.bio-hero img{
+    width:220px;
+    height:280px;
+    object-fit:cover;
+    border-radius:18px;
+    border:4px solid #facc15;
+}
+
+.bio-years{
+    font-size:30px;
+    font-weight:bold;
+    color:#facc15;
+    margin-top:20px;
+}
+
+.quote{
+    font-size:24px;
+    color:#facc15;
+    font-style:italic;
+    margin-top:25px;
+}
+
+.gold{
+    color:#facc15;
+    font-weight:bold;
+}
+
+/* timeline */
+.timeline{
+    position:relative;
+    margin-left:40px;
+    padding-left:35px;
+    border-left:4px solid #facc15;
+}
+
+.timeline-item{
+    position:relative;
+    margin-bottom:35px;
+}
+
+.timeline-dot{
+    width:18px;
+    height:18px;
+    background:#facc15;
+    border-radius:50%;
+    position:absolute;
+    left:-45px;
+    top:12px;
+    box-shadow:0 0 12px #facc15;
+}
+
+.timeline-content{
+    background:rgba(15,15,15,.88);
+    padding:25px;
+    border-radius:18px;
+    cursor:pointer;
+    transition:.35s;
+    box-shadow:0 10px 20px rgba(0,0,0,.35);
+}
+
+.timeline-content:hover{
+    transform:translateX(8px);
+    background:rgba(40,20,20,.95);
+}
+
+.timeline-content.open{
+    transform:scale(1.05);
+    background:rgba(30,20,20,.98);
+    box-shadow:0 25px 55px rgba(0,0,0,.6);
+    position:relative;
+    z-index:10;
+}
+
+.timeline-content h3{
+    margin-top:0;
+    color:#facc15;
+    font-size:24px;
+}
+
+.timeline-content p{
+    line-height:1.8;
+    font-size:18px;
+}
+
+.timeline-details{
+    display:none;
+    margin-top:15px;
+}
+
+.timeline-content.open .timeline-details{
+    display:block;
+}
+
+.timeline-content img,
+.timeline-preview img{
+    display:block;
+    max-width:100%;
+    height:260px;
+    object-fit:contain;
+    margin:20px auto;
+    padding:10px;
+    border-radius:14px;
+    border:3px solid #facc15;
+}
+
+.img-caption{
+    text-align:center;
+    font-size:14px;
+    color:#d1d5db;
+    font-style:italic;
+}
+
+/* ===================== АГРАРНАЯ ===================== */
+.agrar-section{
+    padding:0;
+    background:#1a1208;
+}
+
+.agrar-hero{
+    min-height:100vh;
+    background:url('pole.jpg') center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.agrar-overlay{
+    background:rgba(0,0,0,.6);
+    padding:60px;
+    border-radius:24px;
+    width:100%;
+    max-width:1000px;
+    text-align:center;
+    animation:fadeIn 1.2s ease forwards;
+}
+
+.agrar-overlay h1{
+    color:#facc15;
+    font-size:52px;
+}
+
+.agrar-years{
+    font-size:34px;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+.agrar-quote{
+    font-size:24px;
+    font-style:italic;
+    line-height:1.6;
+}
+
+.scroll-down{
+    font-size:60px;
+    color:#facc15;
+    margin-top:35px;
+    animation:bounce 1.5s infinite;
+}
+
+/* причины */
+.agrar-reasons{
+    padding:90px 40px;
+    background:linear-gradient(135deg,#241507,#3a2410);
+}
+
+.agrar-reasons h2{
+    text-align:center;
+    color:#facc15;
+    font-size:46px;
+    margin-bottom:55px;
+}
+
+.reason-big-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    max-width:1300px;
+    margin:auto;
+}
+
+.reason-big{
+    background:linear-gradient(145deg,#1a1208,#2b1b0d);
+    border:2px solid #facc15;
+    padding:35px;
+    border-radius:22px;
+    position:relative;
+    transition:.35s;
+}
+
+.reason-big::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background:#facc15;
+}
+
+.reason-big:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(250,204,21,.2);
+}
+
+.reason-big h3{
+    color:#facc15;
+    font-size:28px;
+    margin-bottom:18px;
+}
+
+.reason-big li{
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* ===================== АДАПТИВ ===================== */
+@media(max-width:768px){
+
+body{
+    flex-direction:column;
+}
+
+.sidebar{
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+}
+
+.sidebar h2{
+    width:100%;
+    text-align:center;
+}
+
+main{
+    height:auto;
+}
+
+.section{
+    padding:20px;
+}
+
+h1{
+    font-size:28px;
+}
+
+.home-buttons{
+    grid-template-columns:1fr;
+}
+
+.home-card{
+    font-size:22px;
+    padding:25px;
+}
+
+.timeline{
+    margin-left:15px;
+    padding-left:20px;
+}
+
+.timeline-dot{
+    left:-28px;
+}
+
+.timeline-content{
+    padding:18px;
+}
+
+.timeline-content h3{
+    font-size:20px;
+}
+
+.timeline-content p{
+    font-size:16px;
+}
+
+.timeline-content img{
+    height:auto;
+    max-height:220px;
+}
+
+.reason-big-grid{
+    grid-template-columns:1fr;
+}
+
+.agrar-reasons{
+    padding:60px 20px;
+}
+
+.agrar-reasons h2{
+    font-size:34px;
+}
+
+.reason-big h3{
+    font-size:24px;
+}
+
+.reason-big li{
+    font-size:16px;
+}
+
+}
+.reason-item{
+background:rgba(255,255,255,0.06);
+padding:16px 18px;
+border-radius:14px;
+margin-bottom:14px;
+font-size:18px;
+line-height:1.6;
+border-left:4px solid #facc15;
+transition:.3s;
+}
+
+.reason-item span{
+font-size:22px;
+margin-right:10px;
+}
+
+.reason-item:hover{
+transform:translateX(8px);
+background:rgba(255,255,255,0.1);
+}
+.reason-big h3{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.reason-big h3 span{
+font-size:28px;
+transition:.3s;
+}
+
+.reason-hidden{
+max-height:0;
+overflow:hidden;
+transition:.5s ease;
+}
+
+.reason-big.open .reason-hidden{
+max-height:1000px;
+margin-top:20px;
+}
+
+.reason-big.open h3 span{
+transform:rotate(45deg);
+}
+/* ТАЙМЛАЙН АГРАРНОЙ РЕФОРМЫ */
+.agrar-timeline{
+padding:120px 40px;
+background:linear-gradient(180deg,#1a1208,#241507,#130d07);
+position:relative;
+overflow:hidden;
+}
+
+.agrar-timeline h2{
+text-align:center;
+font-size:52px;
+color:#facc15;
+margin-bottom:15px;
+animation:fadeUp 1s ease;
+}
+
+.agrar-sub{
+text-align:center;
+font-size:22px;
+color:#ddd;
+margin-bottom:80px;
+animation:fadeUp 1.4s ease;
+}
+
+/* линия */
+.timeline-line{
+position:relative;
+max-width:1400px;
+margin:auto;
+padding:20px 0;
+}
+
+.timeline-line::before{
+content:"";
+position:absolute;
+left:50%;
+top:0;
+transform:translateX(-50%);
+width:4px;
+height:100%;
+background:linear-gradient(#facc15,#fff,#facc15);
+box-shadow:0 0 20px rgba(250,204,21,.5);
+}
+
+/* карточки */
+.agrar-card{
+width:44%;
+padding:30px;
+margin:35px 0;
+border-radius:22px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(6px);
+box-shadow:0 15px 35px rgba(0,0,0,.35);
+position:relative;
+transition:.4s;
+opacity:0;
+animation:fadeUp 1s forwards;
+}
+
+.agrar-card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 25px 45px rgba(250,204,21,.18);
+background:rgba(255,255,255,0.08);
+}
+
+/* лево право */
+.left{
+margin-right:auto;
+}
+
+.right{
+margin-left:auto;
+}
+
+/* точки */
+.agrar-card::after{
+content:"";
+position:absolute;
+top:40px;
+width:18px;
+height:18px;
+background:#facc15;
+border-radius:50%;
+box-shadow:0 0 18px #facc15;
+}
+
+.left::after{
+right:-58px;
+}
+
+.right::after{
+left:-58px;
+}
+
+/* год */
+.year{
+display:inline-block;
+padding:8px 16px;
+background:#facc15;
+color:#000;
+font-weight:900;
+border-radius:50px;
+font-size:18px;
+margin-bottom:18px;
+box-shadow:0 8px 20px rgba(250,204,21,.35);
+}
+
+/* заголовок */
+.agrar-card h3{
+font-size:28px;
+color:#fff;
+margin-bottom:18px;
+line-height:1.3;
+}
+
+/* текст */
+.agrar-card p{
+font-size:18px;
+line-height:1.8;
+color:#e7e7e7;
+margin-bottom:14px;
+animation:textGlow 4s infinite alternate;
+}
+
+/* живой текст */
+@keyframes textGlow{
+0%{opacity:.85;}
+100%{opacity:1;}
+}
+
+/* появление */
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* мобильная версия */
+@media(max-width:900px){
+
+.timeline-line::before{
+left:20px;
+}
+
+.agrar-card{
+width:100%;
+margin-left:40px !important;
+}
+
+.left::after,
+.right::after{
+left:-31px;
+}
+
+.agrar-timeline h2{
+font-size:36px;
+}
+
+.agrar-sub{
+font-size:18px;
+}
+
+.agrar-card h3{
+font-size:22px;
+}
+
+.agrar-card p{
+font-size:16px;
+}
+
+}
+/* ИТОГИ */
+.results-section{
+padding:120px 40px;
+background:linear-gradient(180deg,#1a1208,#241507,#130d07);
+}
+
+.results-section h2{
+text-align:center;
+font-size:52px;
+color:#facc15;
+margin-bottom:20px;
+}
+
+.results-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:30px;
+max-width:1300px;
+margin:70px auto;
+}
+
+.result-card{
+padding:35px;
+border-radius:24px;
+background:rgba(255,255,255,.04);
+box-shadow:0 15px 30px rgba(0,0,0,.35);
+transition:.35s;
+border:1px solid rgba(255,255,255,.07);
+}
+
+.result-card:hover{
+transform:translateY(-10px);
+}
+
+.result-card h3{
+font-size:30px;
+color:#facc15;
+margin-bottom:20px;
+}
+
+.big-num{
+font-size:54px;
+font-weight:900;
+color:#22c55e;
+margin-bottom:10px;
+}
+
+.result-card p{
+font-size:20px;
+margin-bottom:20px;
+color:#fff;
+}
+
+.result-card ul{
+padding-left:20px;
+line-height:1.9;
+font-size:18px;
+color:#ddd;
+}
+
+.minus-text{
+margin-top:20px;
+padding:14px;
+border-radius:14px;
+background:rgba(239,68,68,.12);
+color:#fca5a5;
+font-size:17px;
+}
+
+.fail-block{
+margin-top:80px;
+max-width:1100px;
+margin-left:auto;
+margin-right:auto;
+padding:45px;
+border-radius:24px;
+background:rgba(255,255,255,.04);
+}
+
+.fail-block h3{
+text-align:center;
+font-size:38px;
+color:#ef4444;
+margin-bottom:35px;
+}
+
+.fail-item{
+padding:18px 20px;
+margin-bottom:15px;
+border-radius:14px;
+background:rgba(255,255,255,.03);
+font-size:20px;
+}
+
+.fail-item span{
+font-size:28px;
+margin-right:12px;
+}
+
+@media(max-width:768px){
+
+.results-grid{
+grid-template-columns:1fr;
+}
+
+.big-num{
+font-size:42px;
+}
+
+.results-section h2{
+font-size:38px;
+}
+
+.result-card h3{
+font-size:24px;
+}
+
+.fail-block h3{
+font-size:28px;
+}
+
+.fail-item{
+font-size:17px;
+}
+
+}
+/* ПЕРЕСЕЛЕНЧЕСКАЯ ПОЛИТИКА */
+/* ===================== */
+
+.migration-section{
+padding:120px 40px;
+background:linear-gradient(180deg,#130d07,#241507,#1a1208);
+}
+
+.migration-section h2{
+text-align:center;
+font-size:52px;
+color:#facc15;
+margin-bottom:70px;
+}
+
+/* сетка */
+.migration-grid{
+display:grid;
+grid-template-columns:1.2fr 1fr;
+gap:45px;
+align-items:center;
+max-width:1400px;
+margin:auto;
+}
+
+/* правая колонка */
+.migration-info{
+display:grid;
+gap:22px;
+}
+
+/* карточки */
+.info-card{
+padding:28px;
+border-radius:20px;
+background:rgba(255,255,255,.05);
+box-shadow:0 12px 25px rgba(0,0,0,.3);
+transition:.35s;
+border:1px solid rgba(255,255,255,.06);
+}
+
+.info-card:hover{
+transform:translateX(10px);
+background:rgba(255,255,255,.08);
+}
+
+.info-card h3{
+font-size:28px;
+color:#facc15;
+margin-bottom:12px;
+}
+
+.info-card p{
+font-size:18px;
+line-height:1.8;
+color:#e5e5e5;
+}
+
+/* адаптив */
+@media(max-width:900px){
+
+.migration-grid{
+grid-template-columns:1fr;
+}
+
+.migration-section h2{
+font-size:38px;
+}
+
+.info-card h3{
+font-size:24px;
+}
+
+.info-card p{
+font-size:16px;
+}
+
+}
+/* КАРТА КЛИКАБЕЛЬНАЯ */
+.map-frame{
+cursor:pointer;
+padding:18px;
+border-radius:24px;
+background:linear-gradient(145deg,#facc15,#8b6b00);
+box-shadow:0 20px 45px rgba(0,0,0,.45);
+overflow:hidden;
+}
+
+.map-frame img{
+display:block;
+width:100%;
+height:auto;
+object-fit:contain;
+border-radius:16px;
+}
+
+/* ПОЛНЫЙ ЭКРАН */
+.map-frame.fullscreen{
+position:fixed;
+top:0;
+left:0;
+width:100vw;
+height:100vh;
+z-index:9999;
+padding:25px;
+background:rgba(0,0,0,.94);
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:0;
+}
+
+.map-frame.fullscreen img{
+width:auto;
+height:auto;
+max-width:95vw;
+max-height:95vh;
+object-fit:contain;
+border-radius:14px;
+}
+
+/* МОБИЛКА */
+@media(max-width:768px){
+
+.map-frame{
+padding:10px;
+}
+
+.map-frame.fullscreen{
+padding:12px;
+}
+
+.map-frame.fullscreen img{
+max-width:100%;
+max-height:90vh;
+}
+
+}
+html{
+scroll-behavior:smooth;
+}
+
+.agrar-nav{
+position:sticky;
+top:0;
+z-index:999;
+display:flex;
+justify-content:center;
+gap:15px;
+padding:15px;
+background:rgba(0,0,0,.75);
+backdrop-filter:blur(10px);
+}
+
+.agrar-nav a{
+color:white;
+text-decoration:none;
+padding:10px 18px;
+border-radius:30px;
+background:rgba(255,255,255,.05);
+transition:.3s;
+font-weight:600;
+}
+
+.agrar-nav a:hover{
+background:#facc15;
+color:black;
+transform:translateY(-3px);
+}
+/* ТЕРМИНЫ */
+/* ===================== */
+
+.agrar-terms{
+    padding:120px 40px;
+    background:linear-gradient(180deg,#1a1208,#241507,#130d07);
+}
+
+.agrar-terms h2{
+    text-align:center;
+    font-size:52px;
+    color:#facc15;
+    margin-bottom:15px;
+}
+
+.terms-sub{
+    text-align:center;
+    font-size:22px;
+    color:#ddd;
+    margin-bottom:60px;
+}
+
+.terms-grid{
+    display:grid;
+    grid-template-columns:1fr;  /* ← ТЕПЕРЬ 1 КОЛОНКА */
+    gap:20px;
+    max-width:800px;            /* ← Уже для лучшего чтения */
+    margin:0 auto;
+}
+
+.term-card{
+    background:rgba(255,255,255,.05);
+    padding:28px;
+    border-radius:22px;
+    cursor:pointer;
+    transition:.35s;
+    box-shadow:0 15px 30px rgba(0,0,0,.35);
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.term-card:hover{
+    transform:translateY(-8px);
+    background:rgba(255,255,255,.08);
+}
+
+.term-card h3{
+    margin:0;
+    font-size:28px;
+    color:#facc15;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.term-hidden{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.45s ease-out;
+}
+
+.term-hidden p{
+    font-size:18px;
+    line-height:1.8;
+    color:#eee;
+    margin-top:22px;
+}
+
+.term-card.open .term-hidden{
+    max-height:300px;  /* Достаточно для твоего текста */
+}
+
+.term-card.open h3 span{
+    transform:rotate(45deg);
+    display:inline-block;
+}
+
+/* мобилка */
+@media(max-width:900px){
+    .agrar-terms{
+        padding:60px 20px;
+    }
+    
+    .agrar-terms h2{
+        font-size:32px;
+    }
+    
+    .terms-sub{
+        font-size:16px;
+    }
+    
+    .term-card h3{
+        font-size:22px;
+    }
+    
+    .term-hidden p{
+        font-size:15px;
+    }
+}
+/* ПРОВЕРЬ ЗНАНИЯ */
+#quiz{
+    padding:0;
+    background:#0b1020;
+}
+
+.quiz-hero{
+    min-height:100vh;
+    background:linear-gradient(135deg,#07111f,#132238,#1d3557);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.quiz-overlay{
+    background:rgba(0,0,0,.45);
+    padding:60px;
+    border-radius:28px;
+    text-align:center;
+    max-width:1200px;
+    width:100%;
+    box-shadow:0 20px 50px rgba(0,0,0,.45);
+    animation:fadeIn 1s ease;
+}
+
+.quiz-overlay h1{
+    font-size:60px;
+    margin-bottom:20px;
+    color:#38bdf8;
+}
+
+.quiz-years{
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:20px;
+    color:#facc15;
+}
+
+.quiz-sub{
+    font-size:22px;
+    max-width:800px;
+    margin:0 auto 50px;
+    line-height:1.7;
+    color:#e5e7eb;
+}
+
+.quiz-menu{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:30px;
+}
+
+.quiz-card{
+    background:rgba(255,255,255,.06);
+    padding:45px;
+    border-radius:24px;
+    cursor:pointer;
+    transition:.35s;
+    border:1px solid rgba(255,255,255,.08);
+    max-width:500px;
+    width:100%;
+}
+
+.quiz-card:hover{
+    transform:translateY(-10px) scale(1.03);
+    background:rgba(56,189,248,.15);
+    box-shadow:0 20px 45px rgba(56,189,248,.18);
+}
+
+.quiz-icon{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.quiz-card h3{
+    font-size:32px;
+    margin-bottom:15px;
+    color:#38bdf8;
+}
+
+.quiz-card p{
+    font-size:18px;
+    line-height:1.7;
+    color:#e5e7eb;
+}
+
+.quiz-card button{
+    margin-top:20px;
+    padding:12px 30px;
+    border:none;
+    border-radius:14px;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+    background:#1e293b;
+    color:white;
+}
+
+.quiz-card button:hover{
+    background:#38bdf8;
+    color:black;
+}
+
+/* МОБИЛКА */
+@media(max-width:768px){
+    .quiz-overlay{
+        padding:30px 20px;
+    }
+    .quiz-overlay h1{
+        font-size:38px;
+    }
+    .quiz-years{
+        font-size:22px;
+    }
+    .quiz-sub{
+        font-size:18px;
+    }
+    .quiz-card{
+        padding:30px 20px;
+    }
+    .quiz-card h3{
+        font-size:24px;
+    }
+}
+/* ===== АНТИКРИЗИСНЫЕ РЕФОРМЫ ===== */
+.crisis-section{
+background:
+linear-gradient(rgba(10,10,10,.93), rgba(10,10,10,.96)),
+url("duma.jpg");
+background-size:cover;
+background-attachment:fixed;
+}
+
+/* ===== ШАПКА ===== */
+
+.crisis-sub{
+max-width:900px;
+margin:25px auto 0;
+font-size:18px;
+line-height:1.9;
+text-align:center;
+color:#d7d7d7;
+}
+
+/* ===== СТАТИСТИКА ===== */
+
+.crisis-stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+margin:70px 0;
+}
+
+.stat-box{
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(212,175,55,.15);
+padding:35px;
+border-radius:22px;
+text-align:center;
+backdrop-filter:blur(10px);
+transition:.35s;
+}
+
+.stat-box:hover{
+transform:translateY(-6px);
+border-color:#d4af37;
+box-shadow:0 10px 30px rgba(212,175,55,.12);
+}
+
+.stat-num{
+font-size:40px;
+font-weight:700;
+color:#d4af37;
+margin-bottom:12px;
+}
+
+.stat-text{
+color:#d2d2d2;
+line-height:1.7;
+font-size:15px;
+}
+
+/* ===== КАРТОЧКИ ===== */
+
+.crisis-grid{
+display:flex;
+flex-direction:column;
+gap:28px;
+}
+
+.crisis-card{
+position:relative;
+background:rgba(20,20,20,.92);
+border:1px solid rgba(212,175,55,.14);
+border-radius:24px;
+overflow:hidden;
+transition:.35s;
+backdrop-filter:blur(10px);
+cursor:pointer;
+}
+
+.crisis-card:hover{
+transform:translateY(-5px);
+border-color:#d4af37;
+box-shadow:0 10px 40px rgba(212,175,55,.12);
+}
+
+.crisis-card::before{
+content:"";
+display:block;
+width:70px;
+height:3px;
+background:#d4af37;
+border-radius:10px;
+margin:22px 0 0 26px;
+}
+
+/* ===== ЗАГОЛОВОК ===== */
+
+.crisis-card h3{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px 26px;
+margin:0;
+font-size:24px;
+font-weight:700;
+color:#fff;
+font-family:'Montserrat',sans-serif;
+}
+
+.crisis-card h3 span{
+font-size:28px;
+color:#d4af37;
+transition:.35s;
+}
+
+.crisis-card.open h3 span{
+transform:rotate(45deg);
+}
+
+/* ===== СОДЕРЖИМОЕ ===== */
+
+.crisis-hidden{
+max-height:0;
+overflow:hidden;
+opacity:0;
+padding:0 26px;
+transition:max-height .6s ease, opacity .4s ease;
+}
+
+.crisis-card.open .crisis-hidden{
+max-height:5000px;
+opacity:1;
+padding:0 26px 32px;
+}
+
+.crisis-hidden p{
+font-size:16px;
+line-height:1.9;
+color:#d8d8d8;
+margin-bottom:20px;
+font-family:'Montserrat',sans-serif;
+}
+
+/* ===== ПОДЗАГОЛОВКИ ===== */
+
+.crisis-hidden h4{
+position:relative;
+padding-left:18px;
+margin:42px 0 24px;
+font-size:22px;
+font-weight:700;
+color:#d4af37;
+letter-spacing:.5px;
+font-family:'Montserrat',sans-serif;
+}
+
+.crisis-hidden h4::before{
+content:"";
+position:absolute;
+left:0;
+top:4px;
+width:4px;
+height:24px;
+background:#d4af37;
+border-radius:5px;
+}
+
+/* ===== ВСТУПЛЕНИЕ ===== */
+
+.reform-intro{
+padding:24px;
+margin-bottom:35px;
+background:rgba(255,255,255,.03);
+border-left:4px solid #d4af37;
+border-radius:16px;
+font-size:17px;
+line-height:2;
+color:#fff;
+}
+
+/* ===== ВЫДЕЛЕНИЯ ===== */
+
+.gold{
+color:#d4af37;
+font-weight:700;
+}
+
+.underline{
+border-bottom:2px solid #d4af37;
+padding-bottom:2px;
+}
+
+/* ===== ИНФО-БЛОКИ ===== */
+
+.info-block{
+background:rgba(255,255,255,.03);
+border:1px solid rgba(212,175,55,.1);
+padding:22px;
+border-radius:18px;
+margin-bottom:22px;
+transition:.3s;
+}
+
+.info-block:hover{
+transform:translateY(-4px);
+border-color:#d4af37;
+background:rgba(255,255,255,.05);
+}
+
+.mini-title{
+font-size:18px;
+font-weight:700;
+color:#d4af37;
+margin-bottom:12px;
+line-height:1.6;
+}
+
+/* ===== ПРИМЕЧАНИЯ ===== */
+
+.reform-note{
+background:rgba(212,175,55,.08);
+border-left:4px solid #d4af37;
+padding:18px 20px;
+border-radius:14px;
+margin:28px 0;
+font-size:16px;
+line-height:1.8;
+color:#f1f1f1;
+}
+
+/* ===== ЗАВЕРШЕНИЕ ===== */
+
+.reform-end{
+margin-top:35px;
+padding-top:25px;
+border-top:1px solid rgba(212,175,55,.2);
+text-align:center;
+font-style:italic;
+font-size:18px;
+line-height:1.9;
+color:#cfcfcf;
+opacity:.9;
+}
+
+/* ===== ГАЛЕРЕЯ ===== */
+
+.crisis-gallery{
+margin-top:110px;
+}
+
+.crisis-gallery h2{
+text-align:center;
+font-size:42px;
+margin-bottom:55px;
+color:#d4af37;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.gallery-item{
+background:#111;
+border-radius:20px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.08);
+transition:.35s;
+}
+
+.gallery-item:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 35px rgba(0,0,0,.35);
+}
+
+.gallery-item img{
+width:100%;
+height:240px;
+object-fit:cover;
+display:block;
+}
+
+.gallery-item p{
+padding:18px;
+text-align:center;
+font-size:17px;
+color:#e2e2e2;
+}
+
+/* ===== ПОЧЕМУ НЕ ЗАВЕРШИЛИСЬ ===== */
+
+.crisis-fail{
+margin-top:110px;
+}
+
+.crisis-fail h2{
+text-align:center;
+font-size:42px;
+margin-bottom:55px;
+color:#d4af37;
+}
+
+.fail-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.fail-card{
+background:rgba(255,255,255,.04);
+padding:32px;
+border-radius:22px;
+border:1px solid rgba(212,175,55,.15);
+transition:.35s;
+}
+
+.fail-card:hover{
+transform:translateY(-6px);
+border-color:#d4af37;
+box-shadow:0 10px 30px rgba(212,175,55,.12);
+}
+
+.fail-card span{
+display:block;
+margin-bottom:16px;
+font-size:38px;
+}
+
+.fail-card h3{
+margin-bottom:14px;
+font-size:22px;
+color:#fff;
+}
+
+.fail-card p{
+color:#cfcfcf;
+line-height:1.8;
+}
+
+/* ===== ЦИТАТА ===== */
+
+.final-quote{
+position:relative;
+max-width:900px;
+margin:120px auto 60px;
+padding:40px;
+text-align:center;
+font-size:38px;
+line-height:1.7;
+font-style:italic;
+color:#d4af37;
+opacity:.92;
+}
+
+.final-quote::before,
+.final-quote::after{
+content:"“";
+position:absolute;
+font-size:90px;
+opacity:.12;
+}
+
+.final-quote::before{
+left:0;
+top:-10px;
+}
+
+.final-quote::after{
+right:0;
+bottom:-40px;
+transform:rotate(180deg);
+}
+/* ===== ЕГЭ ===== */
+.ege-card{
+max-width:900px;
+margin:50px auto;
+padding:35px;
+background:rgba(255,255,255,.05);
+border-radius:24px;
+}
+
+.ege-card h3{
+color:#38bdf8;
+font-size:28px;
+}
+
+.ege-card p{
+font-size:20px;
+line-height:1.7;
+}
+
+.answers{
+display:grid;
+gap:15px;
+margin-top:30px;
+}
+
+.answers button,
+.quiz-card button{
+
+padding:15px;
+border:none;
+border-radius:14px;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+background:#1e293b;
+color:white;
+}
+
+.answers button:hover,
+.quiz-card button:hover{
+
+background:#38bdf8;
+color:black;
+}
+
+.result{
+margin-top:20px;
+font-size:22px;
+font-weight:bold;
+}
+/* ===== СТРЕЛОЧКА ДЛЯ АНТИКРИЗИСНЫХ РЕФОРМ ===== */
+.crisis-hero {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.crisis-overlay {
+    background: rgba(0,0,0,.6);
+    padding: 60px;
+    border-radius: 24px;
+    text-align: center;
+    max-width: 1100px;
+    margin: auto;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+.crisis-overlay h1 {
+    font-size: 52px;
+    color: #facc15;
+    margin-bottom: 20px;
+}
+
+.crisis-hero .scroll-down {
+    font-size: 60px;
+    color: #facc15;
+    margin-top: 35px;
+    animation: bounce 1.5s infinite;
+    cursor: pointer;
+}
+/* ===== КНОПКА НАВЕРХ ===== */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    background: #facc15;
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    font-size: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(250,204,21,0.4);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.scroll-top-btn:hover {
+    transform: translateY(-5px);
+    background: #ffde5c;
+    box-shadow: 0 8px 25px rgba(250,204,21,0.6);
+}
+
+.scroll-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 768px) {
+    .scroll-top-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 22px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+.hero-intro{
+margin:35px auto;
+max-width:900px;
+animation:fadeIn 1.5s ease;
+}
+
+.hero-line{
+width:120px;
+height:4px;
+background:#38bdf8;
+margin:0 auto 30px;
+border-radius:10px;
+box-shadow:0 0 20px rgba(56,189,248,.5);
+}
+.hero-text{
+font-size:28px;
+line-height:1.8;
+color:#f1f5f9;
+margin-bottom:35px;
+font-weight:500;
+}
+
+.hero-highlight{
+font-size:32px;
+font-weight:700;
+line-height:1.6;
+color:#cbd5e1;
+max-width:900px;
+margin:auto;
+}
+
+.quote{
+margin-top:40px;
+font-size:24px;
+font-style:italic;
+color:#facc15;
+}
+
+@media(max-width:768px){
+
+.hero-text{
+font-size:18px;
+}
+
+.hero-highlight{
+font-size:20px;
+}
+
+}
+.question-list {
+    background: rgba(255,255,255,0.04);
+    padding: 20px 25px;
+    border-radius: 16px;
+    margin: 20px 0;
+}
+
+.question-list p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+.match-table {
+    display: flex;
+    gap: 40px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+.match-col {
+    flex: 1;
+    min-width: 250px;
+}
+.match-col h4 {
+    color: #facc15;
+    margin-bottom: 15px;
+}
+.match-col p {
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+@media (max-width: 600px) {
+    .match-table {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+</style>
+<body>
+<nav class="sidebar">
+    <h2>Меню</h2>
+    <a onclick="showSection('home')">ГЛАВНАЯ</a>
+    <a onclick="showSection('bio')">БИОГРАФИЯ</a>
+    <a onclick="showSection('agrar')">АГРАРНАЯ РЕФОРМА</a>
+    <a onclick="showSection('crisis')">АНТИКРИЗИСНЫЕ РЕФОРМЫ</a>
+    <a onclick="showSection('test')">ПРОВЕРЬ ЗНАНИЯ</a>
+</nav>
+<main>
+<div id="home" class="section active home">
+    <div class="overlay">
+
+<h1>
+МОДЕРНИЗАЦИЯ РОССИЙСКОЙ ИМПЕРИИ ПОД РУКОВОДСТВОМ ПЕТРА АРКАДЬЕВИЧА СТОЛЫПИНА В НАЧАЛЕ ХХ ВЕКА
+</h1>
+
+<div class="hero-intro">
+
+<div class="hero-line"></div>
+
+<p class="hero-text">
+Россия начала XX века стоит на грани перемен.
+Крестьянские волнения, политический кризис,
+поиск нового пути развития государства —
+страна переживает один из самых сложных моментов своей истории.
+</p>
+
+<p class="hero-highlight">
+⚡ Именно в этот момент появляется человек,
+который решает изменить будущее Российской империи.
+Погрузись в эпоху П.А. Столыпина и узнай:
+смогли ли реформы изменить судьбу страны?
+</p>
+
+</div>
+
+<p class="quote">
+«Дайте государству 20 лет покоя, внутреннего и внешнего, и вы не узнаете нынешней России»
+</p>
+
+<div class="home-buttons">
+
+<div class="home-card" onclick="showSection('bio')">
+БИОГРАФИЯ
+</div>
+
+<div class="home-card" onclick="showSection('agrar')">
+АГРАРНАЯ РЕФОРМА
+</div>
+
+<div class="home-card" onclick="showSection('crisis')">
+АНТИКРИЗИСНЫЕ РЕФОРМЫ
+</div>
+
+<div class="home-card" onclick="showSection('test')">
+ПРОВЕРЬ ЗНАНИЯ
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="bio" class="section">
+<h1>БИОГРАФИЯ П. А. СТОЛЫПИНА</h1>
+<div class="bio-hero">
+    <img src="mygig.jpg">
+    <div class="bio-years">1862 — 1911</div>
+    <div class="quote">
+        «Им нужны великие потрясения, нам нужна великая Россия».
+    </div>
+</div>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content" onclick="this.classList.toggle('open')">
+<div class="timeline-preview">
+<h3>1862 — Рождение и детство</h3>
+<img src="gerb.jpg">
+<div class="img-caption">Герб рода Столыпиных</div>
+</div>
+<div class="timeline-details">
+<p><span class="gold">2 апреля 1862 года</span> Пётр Аркадьевич Столыпин родился в Дрездене.</p>
+<p><span class="gold">Происхождение:</span> Семья принадлежала к старинному дворянскому роду, имела родственные связи с Горчаковыми, Голицыными, Мордвиновыми, Оболенскими и даже приходилась троюродной роднёй поэту Михаилу Лермонтову.</p>
+<p><span class="gold">Отец:</span> Аркадий Дмитриевич Столыпин — генерал, участник Крымской войны.</p>
+<p><span class="gold">Мать:</span> Наталья Михайловна Горчакова — представительница княжеского рода Горчаковых.</p>
+<p><span class="gold">Детские годы:</span> прошли в подмосковном Середникове и имении Колноберже в Литве.</p>
+<p><span class="gold">Первоначальное образование:</span> до 12 лет обучался дома.</p>
+<p><span class="gold">1874–1879:</span> учился в Виленской мужской гимназии.</p>
+<p><span class="gold">1879–1881:</span> продолжил обучение в Орловской гимназии.</p>
+<p><span class="gold">1881 год:</span> окончил гимназию с аттестатом зрелости.</p>
+</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content" onclick="this.classList.toggle('open')">
+<div class="timeline-preview">
+<h3>1881–1885 — Университетское образование</h3>
+<img src="obrazovani.jpg">
+</div>
+<div class="timeline-details">
+<p><span class="gold">31 августа 1881 года</span> П. А. Столыпин поступил на естественное отделение физико-математического факультета Императорского Санкт-Петербургского университета.</p>
+<p><span class="gold">Специальность:</span> изучал агрономию, что впоследствии оказало влияние на его взгляды в области сельского хозяйства и земельной политики.</p>
+<p><span class="gold">Преподаватели:</span> среди профессоров университета был выдающийся русский учёный <span class="gold">Д. И. Менделеев</span>, принимавший у Столыпина экзамен по химии.</p>
+<p><span class="gold">7 октября 1885 года</span> окончил университет и был утверждён кандидатом физико-математического факультета.</p>
+<p><span class="gold">Начало карьеры:</span> после окончания обучения получил чин коллежского секретаря (X класс Табели о рангах), что считалось высоким стартом государственной службы.</p>
+</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content" onclick="this.classList.toggle('open')">
+<div class="timeline-preview">
+<h3>1889–1902 — Служба в Ковно</h3>
+<img src="kovno.jpg"> <div class="img-caption">П.А. Столыпин (1 ряд, второй слева) - В Ковно с уездными предводителями дворянства Ковенской губернии. 1901 г. </div>
+</div>
+<div class="timeline-details">
+<p><span class="gold">18 марта 1889 года</span> П. А. Столыпин был назначен Ковенским уездным предводителем дворянства и председателем суда мировых посредников.</p>
+<p><span class="gold">Период службы:</span> в Ковно он провёл около 13 лет. По воспоминаниям семьи, это было одно из самых спокойных и счастливых времён его жизни.</p>
+<p><span class="gold">Основное направление деятельности:</span> особое внимание уделял развитию сельского хозяйства, улучшению положения крестьян и повышению эффективности земледелия.</p>
+<p><span class="gold">Инициативы:</span> внедрял новые методы хозяйствования, поддерживал развитие животноводства, участвовал в разрешении земельных споров между крестьянами и помещиками.</p>
+<p><span class="gold">Общественная деятельность:</span> содействовал созданию в Ковно «Народного дома» — культурно-просветительского центра для населения.</p>
+<p><span class="gold">Продвижение по службе:</span> за успешную деятельность получил ряд наград и чинов, а в <span class="gold">1899 году</span> стал губернским предводителем дворянства.</p>
+<p><span class="gold">Значение периода:</span> именно в Ковно сформировались его взгляды на аграрный вопрос, которые позднее легли в основу реформ.</p>
+</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content" onclick="this.classList.toggle('open')">
+<div class="timeline-preview">
+<h3>1902–1903 — Гродненская губерния</h3>
+<img src="pupupu.jpg">
+</div>
+<div class="timeline-details">
+<p><span class="gold">Срок службы:</span> 30 мая 1902 — 15 февраля 1903 года.</p>
+<p><span class="gold">Назначение:</span> стал губернатором по инициативе министра внутренних дел В. К. фон Плеве. На тот момент был самым молодым губернатором Российской империи.</p>
+<p><span class="gold">Особенности губернии:</span> многонациональный регион (белорусы, поляки, евреи), политическая напряженность (польское население VS имперская власть, евреев ограничивали), экономические проблемы(отставание в развитии, чересполосица земель, низкая урожайность).</p>
+<p><span class="gold">Административные меры:</span> подавлял беспорядки, усилил работу полиции, уравнивал постановлениями права жителей независимо от вероисповедания.</p>
+<p><span class="gold">Развитие образования:</span> открывал училища, поддерживал гимназии, лично финансировал стипендии для учеников.</p>
+<p><span class="gold">Аграрные меры:</span> расселение крестьян на хутора, ликвидация чересполосицы, внедрение новых технологий земледелия.</p>
+<p><span class="gold">Значение периода:</span> Гродно стало «лабораторией» будущей аграрной реформы Столыпина.</p>
+</div>
+</div>
+</div>
+<div class="timeline-item">
+ <div class="timeline-dot"></div>
+ <div class="timeline-content" onclick="this.classList.toggle('open')">
+<div class="timeline-preview">
+   <h3>1903–1906 — Саратовская губерния</h3>
+<img src="saratov.jpg">
+<div class="img-caption">Памятник П. А. Столыпину в г. Саратов </div>
+</div>
+<div class="timeline-details">
+    <p><span class="gold">Срок службы:</span> 15 февраля 1903 — 26 апреля 1906 .</p>
+    <p><span class="gold">Назначение:</span> назначен как «кризисный управленец» для стабилизации губернии; задача — подавить волнения, увеличить хлебные поставки и усилить роль Саратова в регионе.</p>
+    <p><span class="gold">Основные проблемы:</span> крестьянские волнения, слабое благоустройство, отставание инфраструктуры, рост революционных настроений в 1905 году.</p>
+    <p><span class="gold">Что сделал:</span> асфальтирование улиц, развитие освещения и телефонной сети, подготовка к запуску электрического трамвая, озеленение города.</p>
+    <p><span class="gold">Социальные меры:</span> строительство гимназий и училищ, открытие больниц, приютов и ночлежных домов, развитие системы социальной помощи.</p>
+    <p><span class="gold">Аграрная политика:</span> поездки по губернии во время восстаний, сочетание переговоров и жёстких мер для подавления беспорядков, формирование основ будущей аграрной реформы.</p>
+    <p><span class="gold">Итоги:</span> стабилизация региона, модернизация Саратова, накопление опыта кризисного управления.</p>
+  </div>
+</div>
+</div>
+<div class="timeline-item">
+  <div class="timeline-dot"></div>
+  <div class="timeline-content" onclick="this.classList.toggle('open')">
+<div class="timeline-preview">
+    <h3>1906–1911 — Министр внутренних дел Российской империи</h3>
+<img src="ministr.jpg">
+</div>
+<div class="timeline-details">    
+<p><span class="gold">Срок службы:</span> 26 апреля (9 мая) 1906 — 8 июля 1906 (в должности МВД), далее до 1911 года одновременно с постом председателя Совета министров.</p>
+    <p><span class="gold">Назначение:</span> назначен императором Николаем II на фоне революционных событий 1905–1907 годов; должность считалась одной из самых опасных в империи (угрозы, покушения).</p>
+    <p><span class="gold">В ведении министра внутренних дел находились:</span> полиция и жандармерия, местная администрация, почта и телеграф, цензура, медицина и ветеринария, земства, продовольственное обеспечение, контроль за конфессиями.</p>
+<p><span class="gold">Работа с Думой:</span> выступления в I Государственной думе, жёсткое политическое противостояние; известная фраза: «Не запугаете!» прозвучала в ответ на угрозы и нападки со стороны депутатов левого крыла — она стала символом его несгибаемой позиции.</p>
+</div>
+</div>
+</div>
+<div class="timeline-item">
+  <div class="timeline-dot"></div>
+  <div class="timeline-content" onclick="this.classList.toggle('open')">
+<div class="timeline-preview">
+    <h3>1906–1911 — Председатель Совета министров Российской империи</h3>
+<img src="nikolay.jpg">
+<div class="img-caption">Николай II и Петр Столыпин</div>
+</div>
+<div class="timeline-details"> 
+<p><span class="gold">Срок службы:</span> 8 июля 1906 — 18 сентября 1911 (до смерти), одновременно сохранял пост министра внутренних дел.</p>
+    <p><span class="gold">Назначение:</span> назначен в тот же день, что и роспуска I Государственной думы, сменил И. Л. Горемыкина.</p>
+    <p><span class="gold">Ключевые задачи:</span> стабилизация страны после революции 1905–1907 годов, взаимодействие с Думой (настроена оппозиционно), восстановление авторитета центральной власти на местах, остановить волну политических убийств и вооружённых нападений, организованных радикальными группами.</p>
+    <p><span class="gold">Политические меры:</span> роспуск II Государственной думы (оказалась оппозиционной),«Третьеиюньский переворот» (см. Раздел "Аграрная реформа"), усиление влияния землевладельцев и состоятельных слоёв, усиление контроля центра над регионами (через губернатора и полицию).</p>
+    <p><span class="gold">Проведение аграрной реформы:</span> развитие сельского хозяйства, переселение крестьян в Сибирь и на Дальний Восток, поддержка кооперации и аграрной инфраструктуры, создание Крестьянского поземельного банка.</p>
+    <p><span class="gold">Стабилизация и порядок:</span> усиление полиции, применение военно-полевых судов (1906–1907), снижение революционного террора к 1907 году.</p>
+    <p><span class="gold">Итоги:</span> укрепление государственного управления, экономический рост 1908–1913 годов, развитие промышленности и сельского хозяйства, формирование слоя частных крестьянских собственников.</p>
+  </div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot"></div>
+<div class="timeline-content" onclick="this.classList.toggle('open')">
+<div class="timeline-preview">
+<h3>Личная жизнь</h3>
+<img src="family.jpg">
+<div class="img-caption">Петр Аркадьевич с женой и дочерью </div>
+</div>
+<div class="timeline-details">
+<p><span class="gold">Дети:</span>Был женат на Ольге Борисовне Нейдгардт, правнучке А. Суворова.</p> 
+<p><span class="gold">Дети:</span> У пары родились дочери Мария, Наталья, Елена, Ольга и Александра и сын Аркадий.</p>
+<p><span class="gold">Воспоминания:</span> Дочь Мария оставила ценные воспоминания о своем отце и его деятельности.</p>
+<p><span class="gold">Интересный факт:</span> Изначально Ольга Борисовна была помолвлена со старшим братом Петра - Михаилом, последний был ранен на дуэли и на смертном одре благословил Ольгу и Петра на брак.</p>
+</div>
+</div>
+</div>
+<div class="timeline-item">
+  <div class="timeline-dot"></div>
+  <div class="timeline-content" onclick="this.classList.toggle('open')">
+<div class="timeline-preview">
+    <h3>Гибель </h3>
+<img src="pif.jpg">
+    </div>
+<div class="timeline-details">
+<p><span class="gold">Дата:</span> 1 (14) сентября 1911 года.</p>
+    <p><span class="gold">Место:</span> Киевский городской театр, во время спектакля в присутствии императора Николая II и его свиты.</p>
+    <p><span class="gold">Обстоятельства:</span> во время антракта к Столыпину подошёл Дмитрий Богров (агент охранного отделения, монархист) и выстрелил в него из пистолета.</p>
+    <p><span class="gold">Ранение:</span> После ранения Столыпин перекрестил императора, тяжело опустился в кресло и произнёс: «Счастлив умереть за царя».Был доставлен в больницу в Киеве.</p>
+    <p><span class="gold">Смерть:</span> скончался 5 (18) сентября 1911 года от последствий ранения.</p>
+    <p><span class="gold">Похороны:</span> похоронен в Киево-Печерской лавре.</p>
+<p><span class="gold">Преемник:</span> После Петра Аркадьевича пост председателя Совета министров занял Владимир Николаевич Коковцов.</p>
+    <p><span class="gold">Итог:</span> Россия потеряла одного из самых влиятельных реформаторов. Реформы остались незавершенными. Это событие усилило политическое напряжение в стране и , по мнению некоторых историков, приблизило революционные события.</p>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<div id="agrar" class="section agrar-section">
+<div class="agrar-nav">
+<a href="#reasons">Причины</a>
+<a href="#timeline">Лента</a>
+<a href="#results">Итоги</a>
+<a href="#migration">Карта</a>
+<a href="#terms">Термины</a>
+</div>
+<div class="agrar-hero">
+    <div class="agrar-overlay">
+        <h1>АГРАРНАЯ РЕФОРМА</h1>
+        <div class="agrar-years">1906 — 1911</div>
+        <p class="agrar-quote">
+            «Сначала успокоение, потом реформы».
+        </p>
+        <div class="scroll-down">↓</div>
+    </div>
+</div>
+<div id="reasons" class="agrar-reasons">
+<h2>Причины аграрной реформы</h2>
+<div class="reason-big" onclick="this.classList.toggle('open')">
+<h3>📈 Экономические <span>+</span></h3>
+<div class="reason-hidden">
+<div class="reason-item">
+<span class="reason-icon">🌾</span>
+Отсталость сельского хозяйства (доморощенные технологии и низкая производительность)
+</div>
+<div class="reason-item">
+<span class="reason-icon">💰</span>
+Низкая покупательская способность крестьян
+</div>
+<div class="reason-item">
+<span class="reason-icon">🏪</span>
+Слабый внутренний рынок: отсутствовали развитые оптовые рынки сельхозтехники, продовольственный и сырьевой рынки
+</div>
+<div class="reason-item">
+<span class="reason-icon">📉</span>
+Низкая эффективность общинного земледелия: чересполосица, принудительные севообороты, периодические переделы земли снижали заинтересованность крестьян в улучшении обработки земли
+</div>
+</div>
+</div>
+<div class="reason-big" onclick="this.classList.toggle('open')">
+<h3>👥 Социальные <span>+</span></h3>
+<div class="reason-hidden">
+<div class="reason-item">
+<span class="reason-icon">🌾</span>
+Малоземелье крестьян: после реформы 1861 года население выросло, а земельный фонд остался прежним. В центральной России на двор приходилось около 4 десятин земли, тогда как для самообеспечения требовалось 8 десятин.
+</div>
+<div class="reason-item">
+<span class="reason-icon">👶</span>
+Демографическое давление: рост населения в деревне при неизменном земельном фонде обострял проблему нехватки земли
+</div>
+<div class="reason-item">
+<span class="reason-icon">⚠</span>
+Социальная напряжённость в деревне: бедность, неурожаи и голод провоцировали конфликты и волнения
+</div>
+</div>
+</div><div class="reason-big" onclick="this.classList.toggle('open')">
+<h3>⚖ Политические <span>+</span></h3>
+<div class="reason-hidden">
+<div class="reason-item">
+<span class="reason-icon">🔥</span>
+Первая русская революция 1905–1907 годов: массовые крестьянские выступления, разгром помещичьих усадеб показали, что аграрный вопрос — источник политической нестабильности
+</div>
+<div class="reason-item">
+<span class="reason-icon">🏛</span>
+Необходимость социальной опоры режима: Столыпин стремился создать слой зажиточных крестьян-собственников как опору самодержавия.
+</div>
+<div class="reason-item">
+<span class="reason-icon">📉</span>
+Неудача предыдущих попыток решения: политика С. Ю. Витте, ориентированная на приоритетное развитие промышленности, усугубила проблемы сельского хозяйства
+</div>
+</div>
+</div>
+<div class="reason-big" onclick="this.classList.toggle('open')">
+<h3>📜 Правовые <span>+</span></h3>
+<div class="reason-hidden">
+<div class="reason-item">
+<span class="reason-icon">⛓</span>
+Ограничения крестьянской свободы: до реформы крестьяне были привязаны к общине, не могли свободно распоряжаться землёй, менять место жительства без разрешения
+</div>
+<div class="reason-item">
+<span class="reason-icon">💸</span>
+Выкупные платежи: они обременяли крестьянство и ограничивали мобильность капитала и рабочей силы.
+</div>
+<div class="reason-item">
+<span class="reason-icon">🏦</span>
+Неразвитость кредитной системы для крестьян: отсутствие доступных кредитов мешало внедрению новых технологий и расширению хозяйств
+</div>
+</div>
+</div>
+<div class="reason-big" onclick="this.classList.toggle('open')">
+<h3>🗺 Геополитические <span>+</span></h3>
+<div class="reason-hidden">
+<div class="reason-item">
+<span class="reason-icon">👥</span>
+Аграрное перенаселение в центральных губерниях Российской империи: избыток рабочей силы требовал переселения на свободные земли.
+</div>
+<div class="reason-item">
+<span class="reason-icon">🌲</span>
+Освоение окраин: необходимость экономического развития Сибири, Дальнего Востока и Средней Азии — стратегически важных регионов
+</div>
+<div class="reason-item">
+<span class="reason-icon">🚂</span>
+Развитие транспортной инфраструктуры: строительство Транссиба (1891–1916) сделало возможным массовое переселение и вывоз зерна на экспорт
+</div>
+</div>
+</div>
+<div class="reason-big" onclick="this.classList.toggle('open')">
+<h3>🏛 Стратегические <span>+</span></h3>
+<div class="reason-hidden">
+<div class="reason-item">
+<span class="reason-icon">📜</span>
+Продолжение реформ 1861 года: столыпинская реформа логически завершала начатую отмену крепостного права, переводя крестьян из зависимого состояния в полноправных собственников
+</div>
+<div class="reason-item">
+<span class="reason-icon">⚙</span>
+Выбор модели развития: невозможно было реализовать «американский» вариант (ликвидация помещичьего землевладения) или «прусский» (длительная эволюция). Столыпин выбрал смешанную модель — сочетание фермерского, государственного, семейно-трудового и общинного хозяйства
+</div>
+<div class="reason-item">
+<span class="reason-icon">🌍</span>
+Экспортный потенциал: рост производства зерна и масла мог улучшить внешнеторговый баланс и укрепить экономику
+</div>
+</div>
+</div>
+<div id="timeline" class="agrar-timeline">
+<h2>Ход аграрной реформы П.А. Столыпина</h2>
+<p class="agrar-sub">
+Последовательное проведение преобразований в деревне (1902–1911 гг.)</p>
+<div class="timeline-line">
+<div class="agrar-card left">
+<span class="year">1902</span>
+<h3>Начало подготовки реформ</h3>
+<p>В январе 1902 года было создано «Особое совещание о нуждах сельскохозяйственной промышленности» под председательством С. Ю. Витте.</p>
+<p>Целью стало изучение кризиса деревни и поиск путей модернизации сельского хозяйства.</p>
+<p>Именно здесь началась разработка будущей аграрной реформы.</p>
+</div>
+<div class="agrar-card right">
+<span class="year">1903</span>
+<h3>Отмена круговой поруки</h3>
+<p>В марте 1903 года был издан указ об отмене круговой поруки.</p>
+<p>Теперь крестьяне переставали коллективно отвечать друг за друга по налогам и повинностям.</p>
+<p>Это ослабляло власть общины и усиливало личную ответственность крестьянина.</p>
+</div>
+<div class="agrar-card left">
+<span class="year">1904</span>
+<h3>Ослабление сословных ограничений</h3>
+<p>11 августа 1904 года отменены телесные наказания по решениям волостных судов.</p>
+<p>Также Крестьянскому банку разрешили активнее выдавать ссуды под наделы.</p>
+<p>Государство постепенно готовило крестьянина к самостоятельному хозяйству.</p>
+</div>
+<div class="agrar-card right">
+<span class="year">1905</span>
+<h3>Революция ускорила реформу</h3>
+<p>Во время революции 1905–1907 годов крестьяне громили помещичьи усадьбы, захватывали землю и требовали перемен.</p>
+<p>Власть поняла: без решения аграрного вопроса страну стабилизировать невозможно.</p>
+</div>
+<div class="agrar-card left">
+<span class="year">1906</span>
+<h3>Основная концепция реформы</h3>
+<p>Столыпин предлагал:</p>
+<p>
+• переход к частному землевладению  
+• разрушение крестьянской общины  
+• создание хуторов и отрубов  
+• формирование слоя зажиточных хозяев
+</p>
+<p>Лозунг — «Ставка сделана не на убогих и пьяных, а на крепких и сильных».</p>
+</div>
+<div class="agrar-card left">
+<span class="year"> август 1906</span>
+<h3>⚖ Военно-полевые суды</h3>
+<p>19 августа 1906 года были введены военно-полевые суды для борьбы с революционным террором и вооружёнными выступлениями.</p>
+<p>Суды действовали в ускоренном порядке: дело рассматривалось без длительного следствия и адвокатской защиты, а приговор приводился в исполнение в течение 24 часов.</p>
+<p>Главной целью было быстрое подавление революционного насилия после событий Первой русской революции 1905–1907 гг..</p>
+<p>За жёсткость репрессий в обществе появилось выражение «столыпинский галстук» — так в народе называли виселицу.</p>
+<p>Военно-полевые суды действовали до 1907 года и стали одним из самых спорных инструментов политики Столыпина.</p>
+</div>
+<div class="agrar-card right">
+<span class="year">9 ноября 1906</span>
+<h3>Указ «О дополнении некоторых постановлений действующего закона, касающихся крестьянского землевладения и землепользования»</h3>
+<p>Каждый крестьянин получил право выйти из общины и закрепить землю в личную собственность.</p>
+<p>Это был главный удар по общинному строю.</p>
+<p>Теперь земля могла стать частной собственностью.</p>
+</div>
+<div class="agrar-card left">
+<span class="year">1906</span>
+<h3>Переселенческая политика</h3>
+<p>Крестьянам разрешили свободно переселяться в Сибирь, Среднюю Азию и на Дальний Восток.</p>
+<p>Государство предоставляло землю, льготы, транспорт и помощь.</p>
+<p>Цель — уменьшить перенаселение центральных губерний.</p>
+</div>
+<div class="agrar-card right">
+<span class="year">1907</span>
+<h3>Выступление во II Государственной думе</h3>
+<p>6 марта Столыпин представил программу реформ.</p>
+<p>10 мая он заявил о выборе между крестьянином-бездельником и крестьянином-хозяином.</p>
+<p>Правительство открыто сделало ставку на частника.</p>
+</div>
+<div class="agrar-card right">
+<span class="year">3 июня 1907</span>
+<h3>🏛 Третьеиюньский переворот </h3>
+<p>Николай II распустил II Государственную думу и одновременно изменил избирательный закон без одобрения самой Думы.</p>
+<p>Это нарушало Основные государственные законы Российской империи, поэтому событие получило название «третьеиюньский государственный переворот».</p>
+<p>Новый избирательный закон резко усиливал позиции дворян, помещиков и крупной буржуазии, одновременно сокращая представительство крестьян, рабочих и национальных окраин.</p>
+<p>После переворота начался период политической стабилизации — так называемая «третьеиюньская монархия».</p>
+<p>Столыпин поддержал роспуск Думы, считая это необходимым условием для проведения реформ и борьбы с революцией.</p>
+</div>
+<div class="agrar-card left">
+<span class="year">1907–1909</span>
+<h3>Практическое проведение реформы</h3>
+<p>Тысячи крестьянских дворов начали выходить из общины.</p>
+<p>Создавались хутора — отдельные хозяйства на собственной земле.</p>
+<p>Расширялась работа землеустроительных комиссий.</p>
+</div>
+<div class="agrar-card right">
+<span class="year">14 июня 1910</span>
+<h3>Закон о земле</h3>
+<p>«Об изменении и дополнении некоторых постановлений о крестьянском землевладении»</p>
+<p>Указ 1906 года был окончательно утверждён как закон.</p>
+<p>Общины начали распускаться даже без согласия самих крестьян.</p>
+<p>Реформа приобрела обязательный характер.</p>
+</div>
+<div class="agrar-card left">
+<span class="year">1911</span>
+<h3>Смерть Столыпина</h3>
+<p>После гибели П. А. Столыпина в 1911 году реализацию аграрной реформы продолжил его ближайший соратник — Александр Васильевич Кривошеин, занимавший пост главноуправляющего землеустройством и земледелием (фактически министр сельского хозяйства).</p>
+</div>
+</div>
+</div>
+<div id="results" class="agrar-results">
+<h2>Итоги аграрной реформы</h2>
+<p class="agrar-sub">
+Результаты преобразований П.А. Столыпина: успехи, достижения и причины незавершённости.</p>
+<div class="results-grid">
+<div class="result-card plus">
+<h3>🌾 Разрушение общины</h3>
+<div class="big-num">26–35%</div>
+<p>крестьянских дворов вышли из общины</p>
+<ul>
+<li>Около 2–3 млн хозяйств закрепили землю в частную собственность</li>
+<li>Появились хутора и отруба</li>
+</ul>
+<div class="minus-text">
+Но более 65% крестьян остались в общине
+</div>
+</div>
+<div class="result-card plus">
+<h3>📈 Экономический рост</h3>
+<div class="big-num">×1.5</div>
+<p>вырос сбор зерна</p>
+<ul>
+<li>Россия заняла 1-е место в мире по экспорту хлеба</li>
+<li>25% мирового рынка зерна</li>
+<li>Посевные площади выросли на 10%</li>
+</ul>
+<div class="minus-text">
+Рост в основном обеспечивали зажиточные хозяйства
+</div>
+</div>
+<div class="result-card plus">
+<h3>🚂 Переселение в Сибирь</h3>
+<div class="big-num">3,5 млн+</div>
+<p>человек переселились за Урал</p>
+<ul>
+<li>Освоено около 30 млн десятин земли</li>
+<li>Сибирь стала экспортёром зерна и масла</li>
+</ul>
+<div class="minus-text">
+17% переселенцев вернулись обратно
+</div>
+</div>
+<div class="result-card plus">
+<h3>👨‍🌾 Социальные изменения</h3>
+<div class="big-num">Миллионы</div>
+<p>дворов вошли в кооперацию</p>
+<ul>
+<li>Сформировался слой сельских предпринимателей</li>
+<li>Появились крепкие хозяйства</li>
+</ul>
+<div class="minus-text">
+Усилилось классовое напряжение в деревне
+</div>
+</div>
+</div>
+<div class="fail-block">
+<h3>⚠ Почему реформа не была завершена?</h3>
+<div class="fail-item">
+<span>⏳</span>
+Короткий срок проведения — активная фаза длилась около 5 лет
+</div>
+<div class="fail-item">
+<span>🔫</span>
+После убийства Столыпина в 1911 году темпы реформ резко упали
+</div>
+<div class="fail-item">
+<span>🌍</span>
+В 1914 году началась Первая мировая война
+</div>
+<div class="fail-item">
+<span>💰</span>
+Ставка делалась на сильных хозяев, беднота часто разорялась
+</div>
+<div class="fail-item">
+<span>🏰</span>
+Помещичье землевладение сохранилось
+</div>
+</div>
+</div>
+<div id="migration" class="migration-section">
+<h2>Переселенческая политика</h2>
+<div class="migration-grid">
+<div class="map-frame" onclick="this.classList.toggle('fullscreen')">
+<img src="karta.jpg" alt="Карта переселений">
+</div>
+<div class="migration-info">
+<div class="info-card">
+<h3>🏠 Причина</h3>
+<p>Перенаселение центральных губерний и нехватка земли.</p>
+</div>
+<div class="info-card">
+<h3>🌲 Направления</h3>
+<p>Сибирь, Средняя Азия, Дальний Восток.</p>
+</div>
+<div class="info-card">
+<h3>🚂 Поддержка</h3>
+<p>Льготный проезд, выдача земли, помощь переселенцам.</p>
+</div>
+<div class="info-card">
+<h3>⚠ Трудности</h3>
+<p>Суровый климат, плохой быт, часть крестьян вернулась назад.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="terms" class="agrar-terms">
+<h2>Ключевые понятия реформы</h2>
+<p class="terms-sub">
+Основные термины аграрной реформы П.А. Столыпина</p>
+<div class="terms-grid">
+<div class="term-card">
+<h3>🌾 Отруб <span>+</span></h3>
+<div class="term-hidden">
+<p>Единый участок земли, выделенный крестьянину в частную собственность взамен множества разбросанных полос (чересполосицы), при этом жилой дом и двор крестьянина оставались в самой деревне.</p>
+</div>
+</div>
+<div class="term-card">
+<h3>🏡 Хутор <span>+</span></h3>
+<div class="term-hidden">
+<p>Обособленный участок земли, выделенный крестьянину в частную собственность, на который он переносил свой жилой дом (усадьбу) и все хозяйственные постройки, окончательно разрывая связь с деревней.</p>
+</div>
+</div>
+<div class="term-card">
+<h3>🧩 Чересполосица <span>+</span></h3>
+<div class="term-hidden">
+<p>Старая общинная система, при которой надел одного крестьянина состоял из множества узких полос, разбросанных по разным полям деревни. Реформа Столыпина стремилась её уничтожить.</p>
+</div>
+</div>
+<div class="term-card">
+<h3>🏦 Крестьянский поземельный банк <span>+</span></h3>
+<div class="term-hidden">
+<p>Государственный банк, который выкупал помещичьи земли и перепродавал их крестьянам в кредит на льготных условиях (под низкий процент и на срок до 55 лет).</p>
+</div>
+</div>
+<div class="term-card">
+<h3>🤝 Кооперативное движение <span>+</span></h3>
+<div class="term-hidden">
+<p>Добровольные объединения крестьян (маслодельные, кредитные, потребительские союзы) для совместного сбыта продукции и закупки техники.</p>
+</div>
+</div>
+<div class="term-card">
+<h3>🚂 Переселенческая политика <span>+</span></h3>
+<div class="term-hidden">
+<p>Организованное правительством перемещение малоземельных крестьян из центра России на свободные земли в Сибирь, на Дальний Восток и в Среднюю Азию.</p>
+</div>
+</div>
+<div class="term-card">
+<h3>🚃 Столыпинский вагон <span>+</span></h3>
+<div class="term-hidden">
+<p>Специально оборудованный товарный вагон для перевозки крестьян-переселенцев, их семей, скота и инвентаря в Сибирь.</p>
+</div>
+</div>
+<div class="term-card">
+<h3>⚖ Военно-полевые суды <span>+</span></h3>
+<div class="term-hidden">
+<p>Чрезвычайные суды, введённые в 1906 году для ускоренного рассмотрения дел о революционном терроре и вооружённых выступлениях. Приговоры выносились быстро и часто заканчивались смертной казнью.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- АНТИКРИЗИСНЫЕ РЕФОРМЫ -->
+<div id="crisis" class="section crisis-section">
+<!-- HERO -->
+<div class="crisis-hero">
+<div class="crisis-overlay">
+<h1>АНТИКРИЗИСНЫЕ РЕФОРМЫ</h1>
+<p class="crisis-sub">
+В этом разделе представлены основные антикризисные реформы 
+П. А. Столыпина, направленные на модернизацию Российской империи 
+после революции 1905–1907 годов. Многие проекты затрагивали 
+судебную систему, образование, армию, полицию и социальную сферу, 
+однако значительная часть реформ так и не была полностью реализована.</p>
+<p class="crisis-sub">С программами вы можете ознакомиться ниже.</p>
+<div class="scroll-down">↓</div>
+</div>
+</div>
+<!-- СТАТИСТИКА -->
+<div class="crisis-stats">
+<div class="stat-box">
+<div class="stat-num">1905–1907</div>
+<div class="stat-text">годы революции и кризиса</div>
+</div>
+<div class="stat-box">
+<div class="stat-num">15 000+</div>
+<div class="stat-text">террористических актов</div>
+</div>
+<div class="stat-box">
+<div class="stat-num">3 000+</div>
+<div class="stat-text">чиновников убито</div>
+</div>
+<div class="stat-box">
+<div class="stat-num">80%</div>
+<div class="stat-text">губерний охвачены волнениями</div>
+</div>
+</div>
+<div class="crisis-grid">
+<div class="crisis-card" onclick="this.classList.toggle('open')">
+<h3>⚖ Земская реформа <span>+</span></h3>
+<div class="crisis-hidden">
+<p class="reform-intro">
+Была направлена на 
+модернизацию системы местного самоуправления, усиление влияния 
+<span class="underline">зажиточных крестьян</span> и укрепление 
+русского влияния в западных губерниях.</p>
+<h4>📜 Основные положения проекта 1906 года:</h4>
+<p><b>⚖ Отказ от сословного принципа выборности.</b><br>
+Вместо сословных курий вводился имущественный ценз, что должно было усилить влияние зажиточных крестьян.</p>
+<p><b>🏛 Создание волостного всесословного земства.</b><br>
+Это должно было стать основой самоуправления на низовом уровне.</p>
+<p><b>🇷🇺 Укрепление русского влияния в западных губерниях.</b><br>
+Планировалось распространить земства в тех губерниях, где был силён русский элемент.</p>
+<h4>🗺 Проект для западных губерний (1909 год)</h4>
+<p>В 1909 году был внесён законопроект о введении земств в 
+<span class="gold">Витебской, Минской, Могилёвской, Волынской, Киевской и Подольской губерниях</span>, 
+где преобладало украинское и белорусское население, а помещики в основном были поляками и католиками.</p>
+<p><b>⚔ Разделение избирателей на две курии</b> — польскую и русскую, при этом русская курия должна была избирать в два раза больше гласных.</p>
+<p><b>💰 Снижение имущественного ценза</b> для русских помещиков и православного духовенства.</p>
+<p><b>👥 Требование национального состава.</b><br>
+Председатель и не менее половины членов земства должны были быть русскими.</p>
+<h4>⚠ Сопротивление и итоги</h4>
+<p>Реформа встретила сопротивление 
+<span class="underline">консервативной аристократии</span>, 
+которая опасалась потери влияния и усиления позиций зажиточных крестьян.</p>
+<p class="reform-note">
+📅 <b>1 июня 1914 года</b> Государственный совет Российской империи окончательно отклонил проект «земско-волостной» реформы.
+</p>
+<p class="reform-note important">
+👑 Лишь <b>14 марта 1911 года</b> закон о введении земств в западных губерниях был принят 
+<b>волевым решением Николая II</b>.</p>
+<p class="reform-end">
+Таким образом, несмотря на усилия Столыпина, земская реформа не была полностью реализована в задуманном масштабе.</p>
+</div>
+</div>
+<div class="crisis-card" onclick="this.classList.toggle('open')">
+<h3>🧑‍⚖ Судебная реформа <span>+</span></h3>
+<div class="crisis-hidden">
+<p class="reform-intro">
+Была направлена на создание
+<span class="underline">единого правового пространства</span>,
+модернизацию судебной системы и повышение доступности правосудия.</p>
+<div class="reform-note">
+📅 Закон
+<b>«О преобразовании местного суда»</b>
+был принят 15 июня 1912 года.
+</div>
+<p>С 1 января 1914 года реформа начала действовать
+в 10 юго-западных губерниях,а к 1917 году распространилась уже на 20 губерний Российской империи.</p>
+<h4>Основные положения реформы</h4>
+<div class="info-block">
+<div class="mini-title">
+Упразднение старых судебных институтов
+</div>
+<p>Планировалось ликвидировать волостные суды,
+суды земских начальников,
+городских судей
+и уездных членов окружного суда.</p>
+<p>Однако волостной суд сохранился
+в преобразованном виде —
+как низовая инстанция,
+связанная с мировыми судьями.</p>
+</div>
+<div class="info-block">
+<div class="mini-title">
+Восстановление института мировых судей
+</div>
+<p>Мировые судьи рассматривали
+гражданские и уголовные дела небольшой тяжести.
+Их избирали земские собрания
+и городские думы.</p>
+<p>Решения могли обжаловаться
+в вышестоящих судебных инстанциях.</p>
+</div>
+<div class="info-block">
+<div class="mini-title">
+Единые нормы права
+</div>
+<p>Правительство стремилось отказаться
+от практики вынесения решений
+на основе обычного права,
+традиций и местных преданий.</p>
+<p>Суд должен был действовать
+по единым законам империи.</p>
+</div>
+<div class="info-block">
+<div class="mini-title">
+Повышение требований к судьям
+</div>
+<p>Для мировых судей вводились
+образовательный,
+имущественный,
+служебный
+и нравственный цензы.</p>
+</div>
+<div class="info-block">
+<div class="mini-title">
+Создание мировых съездов
+</div>
+<p>Мировые съезды становились
+апелляционной инстанцией
+для мировых судей.</p>
+<p>
+Они состояли из мировых судей округа
+под председательством лица,
+назначаемого правительством.</p>
+</div>
+<h4>Результаты реформы</h4>
+<div class="info-block">
+<p>⚠Суд стал более доступным
+и менее затратным для населения.</p>
+<p>⚠Судопроизводство избавилось
+от части нелогичных решений
+и правовых противоречий.</p>
+<p>⚠Появились возможности
+для выравнивания прав граждан империи.</p>
+</div>
+<h4>Сопротивление реформе</h4>
+<div class="info-block">
+<p>Реформа сталкивалась с критикой
+со стороны консерваторов
+и правых политических сил,
+которые считали её слишком либеральной.</p>
+<p>Также возникали разногласия
+между Государственной думой
+и Государственным советом,
+из-за чего создавались
+согласительные комиссии.</p>
+</div>
+<p class="reform-end">
+Несмотря на масштабность преобразований,
+судебная реформа не была полностью завершена
+из-за политических противоречий,
+Первой мировой войны
+и революции 1917 года.</p>
+</div>
+</div>
+<div class="crisis-card" onclick="this.classList.toggle('open')">
+<h3>🎖 Военная реформа <span>+</span></h3>
+<div class="crisis-hidden">
+<p class="reform-intro">
+Была направлена на модернизацию армии и флота после
+<span class="underline">поражения в русско-японской войне</span>
+и революционных событий 1905–1907 годов.</p>
+<div class="reform-note">
+📅 Реформа проводилась в 1906–1911 годах
+и должна была повысить обороноспособность Российской империи.
+</div>
+<h4>Причины реформы</h4>
+<div class="info-block">
+<p>Русско-японская война показала серьёзные проблемы
+в вооружении, подготовке армии
+и системе военного управления.</p>
+<p>Россия также отставала
+от ведущих мировых держав
+в развитии техники, связи и организации войск.</p>
+</div>
+<h4>Основные направления реформы</h4>
+<div class="info-block">
+<div class="mini-title">
+Техническое переоснащение армии
+</div>
+<p>Повышалась скорострельность оружия,
+развивалась тяжёлая артиллерия,
+создавались бронемашины
+и современные средства связи:
+телефон, телеграф и радио.</p>
+</div>
+<div class="info-block">
+<div class="mini-title">
+Развитие новых родов войск
+</div>
+<p>Началось формирование
+авиационных,
+химических
+и автобронетанковых частей.
+Развивалось воздухоплавание —
+аэропланы и дирижабли.</p>
+</div>
+<div class="info-block">
+<div class="mini-title">
+Изменение системы службы
+</div>
+<p>Сохранялась всеобщая воинская обязанность,
+но сроки службы сокращались:
+до 3 лет в пехоте
+и до 4 лет в других родах войск.</p>
+</div>
+<div class="info-block">
+<div class="mini-title">
+Подготовка офицеров
+</div>
+<p>Открывались специальные
+электротехнические,
+автомобильные,
+железнодорожные
+и воздухоплавательные школы,
+а также школы прапорщиков.</p>
+</div>
+<div class="info-block">
+<div class="mini-title">
+Развитие флота и инфраструктуры
+</div>
+<p>Проводилась модернизация флота,
+строились стратегические железные дороги,
+включая второй путь Сибирской магистрали
+и Амурскую железную дорогу.</p>
+</div>
+<div class="info-block">
+<div class="mini-title">
+Новый Воинский устав
+</div>
+<p>Был разработан новый устав,
+регулировавший порядок призыва,
+систему льгот
+и права призывных комиссий.</p>
+</div>
+<h4>Итоги реформы</h4>
+<div class="info-block">
+<p>Повысилась боеготовность армии,
+улучшилось техническое оснащение,
+развивались авиация и бронетехника.</p>
+<p>Улучшилась подготовка офицеров,
+расширилась сеть военных учебных заведений,
+а армия стала более мобильной
+благодаря развитию железных дорог.</p>
+</div>
+<h4>Проблемы и ограничения</h4>
+<div class="info-block">
+<p>Нехватка финансирования
+и социальные противоречия в армии
+замедляли модернизацию вооружённых сил.</p>
+</div>
+<p class="reform-end">
+Военная реформа Столыпина стала важным шагом
+в модернизации российской армии,
+однако полностью завершить преобразования
+до начала мировой войны не удалось.</p>
+</div>
+</div>
+<div class="crisis-card" onclick="this.classList.toggle('open')">
+<h3>🚓 Полицейская реформа <span>+</span></h3>
+<div class="crisis-hidden">
+<p class="reform-intro">
+Была направлена на укрепление системы правопорядка
+после революционных событий
+<span class="underline">1905–1907 годов</span>
+и роста террористической активности.</p>
+<h4>Причины реформы</h4>
+<div class="info-block">
+<p>Революция 1905 года показала слабость
+и разобщённость полицейской системы Российской империи.</p>
+<p>Полиция была перегружена административными обязанностями,
+страдала от нехватки финансирования
+и недостаточной подготовки кадров.</p>
+</div>
+<h4>Основные направления реформы</h4>
+<div class="info-block">
+<div class="mini-title">
+Комиссия по преобразованию полиции в Империи
+</div>
+<p>В 1906 году была создана специальная комиссия
+для подготовки проектов преобразования полиции
+и улучшения её работы.</p>
+</div>
+<div class="info-block">
+<div class="mini-title">
+Освобождение от лишних обязанностей
+</div>
+<p>Планировалось снять с полиции функции,
+не связанные напрямую с охраной порядка:
+сбор податей,
+статистические работы
+и административные поручения.</p>
+</div>
+<div class="info-block">
+<div class="mini-title">
+Повышение престижа службы
+</div>
+<p>Предполагалось почти втрое увеличить жалование полицейским
+и улучшить условия службы,
+чтобы привлечь более квалифицированные кадры.</p>
+</div>
+<div class="info-block">
+<div class="mini-title">
+Подготовка сотрудников
+</div>
+<p>Создавались специальные курсы
+и учебные заведения для подготовки полицейских.</p>
+<p>В Царском Селе обучали сотрудников охранки
+методам политического сыска.</p>
+</div>
+<div class="info-block">
+<div class="mini-title">
+Развитие сыскной полиции
+</div>
+<p>В 1908 году был принят закон
+«Об организации сыскной части».</p>
+<p>В крупнейших городах империи
+создавались отделения сыскной полиции
+для борьбы с уголовной преступностью.</p>
+</div>
+<div class="info-block">
+<div class="mini-title">
+Политический сыск
+</div>
+<p>Создавались районные охранные отделения,
+контролировавшие несколько губерний,
+а также проводились съезды начальников охранных отделений
+для обмена опытом.</p>
+</div>
+<h4>Проблемы реформы</h4>
+<div class="info-block">
+<p>Реформа сталкивалась
+с сопротивлением бюрократии,
+нехваткой финансирования
+и сложностью объединения различных полицейских структур.</p>
+<p>После гибели Столыпина в 1911 году
+многие проекты были заморожены.</p>
+</div>
+<h4>Итоги</h4>
+<div class="info-block">
+<p>Удалось усилить сыскную полицию,
+улучшить подготовку кадров
+и частично повысить эффективность борьбы с преступностью.</p>
+<p>Однако создать единую
+и полностью модернизированную систему полиции
+до 1917 года так и не удалось.</p>
+</div>
+<p class="reform-end">
+Полицейская реформа Столыпина стала попыткой
+модернизировать систему охраны правопорядка,
+но её реализация оказалась неполной
+из-за политических и финансовых трудностей.</p>
+</div>
+</div>
+<div class="crisis-card" onclick="this.classList.toggle('open')">
+<h3>🎓 Реформа образования <span>+</span></h3>
+<div class="crisis-hidden">
+<div class="reform-block">
+<h4>Цели реформы</h4>
+<ul class="reform-list">
+<li>сделать образование доступным для всех слоёв населения;</li>
+<li>повысить качество обучения;</li>
+<li>подготовить специалистов для промышленности и сельского хозяйства;</li>
+<li>распространить грамотность и культуру;</li>
+<li>укрепить единство империи через образование.</li>
+</ul>
+</div>
+<div class="reform-block">
+<h4>Всеобщее начальное обучение</h4>
+<p>📅 <b>3 мая 1908 года</b> был утверждён план школьной реформы,
+предусматривавший введение
+<span class="gold">4-летнего бесплатного обучения</span>
+для детей <b>8–12 лет</b>.</p>
+<p>Был подготовлен законопроект
+«О введении всеобщего начального обучения
+в Российской империи».</p>
+</div>
+<div class="reform-block">
+<h4>Расширение сети школ</h4>
+<p>🏫 В <b>1908–1914 годах</b> было открыто
+<span class="gold">50 000 новых школ</span>.</p>
+<p>Развивались профессиональные училища,
+ремесленные и сельскохозяйственные школы,
+а гимназии должны были стать основой единой системы образования.</p>
+</div>
+<div class="reform-block">
+<h4>Подготовка учителей</h4>
+<p>Открывались специальные педагогические курсы,
+создавались новые учительские институты,
+в том числе институт в Ярославле.</p>
+<p>Проводилась переподготовка преподавателей,
+повышалось жалованье и улучшались условия службы.
+</p>
+</div>
+<div class="reform-block">
+<h4>Высшее образование и наука</h4>
+<p>Новый Университетский устав расширял автономию вузов:
+университеты получали право выбирать ректора
+и усиливать роль Совета университета.</p>
+<p>Поддерживались негосударственные вузы,
+научные исследования, музеи,
+экспедиции и культурные проекты.</p>
+</div>
+<div class="reform-block">
+<h4>Финансирование</h4>
+<p class="reform-note important">
+💰 Расходы государства на народное образование
+выросли почти в <b>4 раза</b> —
+с <span class="gold">9 млн</span>
+до <span class="gold">35,5 млн рублей</span>
+в 1908–1914 годах.</p>
+</div>
+<div class="reform-block">
+<h4>Итоги реформы</h4>
+<ul class="reform-list">
+<li>значительно выросла грамотность населения;</li>
+<li>расширилась сеть школ и училищ;</li>
+<li>улучшилась подготовка педагогов;</li>
+<li>развивалось профессиональное образование;</li>
+<li>укреплялась автономия университетов и поддержка науки.</li>
+</ul>
+<p class="reform-end">
+Несмотря на успехи, реформа не была завершена:
+её прервали гибель Столыпина и начало Первой мировой войны.</p>
+</div>
+</div>
+</div>
+<div class="crisis-card" onclick="this.classList.toggle('open')">
+<h3>⚒ Трудовые отношения <span>+</span></h3>
+<div class="crisis-hidden">
+<p class="reform-intro">
+Была направлена на снижение социальной напряжённости,
+улучшение условий труда и защиту рабочих
+после революционных событий
+<span class="underline">1905–1907 годов</span>.
+</p>
+<div class="reform-note">
+📅 Разработка реформы началась в 1906 году
+после массовых стачек и роста рабочего движения.
+</div>
+<div class="reform-block">
+<h4>Причины реформы</h4>
+<ul class="reform-list">
+<li>тяжёлые условия труда на фабриках и заводах;</li>
+<li>отсутствие страхования и правовой защиты рабочих;</li>
+<li>длинный рабочий день и низкая заработная плата;</li>
+<li>рост забастовок и социальных конфликтов.</li>
+</ul>
+</div>
+<div class="reform-block">
+<h4>Защита рабочих</h4>
+<p>Был запрещён ночной труд женщин и подростков
+на ряде производств,
+а также их работа под землёй.</p>
+<p>Для несовершеннолетних сокращался рабочий день,
+а работодатели были обязаны отпускать подростков на учёбу.</p>
+</div>
+<div class="reform-block">
+<h4>Страхование рабочих</h4>
+<p>Проекты <b>1908 года</b> предусматривали:</p>
+<ul class="reform-list">
+<li>страхование от несчастных случаев;</li>
+<li>страхование по болезни;</li>
+<li>создание больничных касс;</li>
+<li>выплаты семьям погибших рабочих.</li>
+</ul>
+</div>
+<div class="reform-block">
+<h4>Трудовые конфликты</h4>
+<p>Планировалось создание специальных промышленных судов
+и комиссий для урегулирования споров
+между рабочими и предпринимателями.</p>
+<p>Также ограничивались размеры штрафов,
+налагаемых работодателями на рабочих.</p>
+</div>
+<div class="reform-block">
+<h4>Законы 1912 года</h4>
+<p class="reform-note important">
+⚖ В <b>1912 году</b> был принят закон
+о страховании рабочих,
+хотя и в значительно сокращённом виде.</p>
+<ul class="reform-list">
+<li>создавались больничные кассы;</li>
+<li>сокращался рабочий день до <b>10 часов</b>;</li>
+<li>разрешались экономические забастовки;</li>
+<li>допускалось создание профессиональных организаций под государственным контролем.</li>
+</ul>
+</div>
+<div class="reform-block">
+<h4>Проблемы реформы</h4>
+<p>Реформа встретила сопротивление предпринимателей
+и консервативных кругов власти,
+опасавшихся роста расходов и усиления рабочего движения.</p>
+<p>Многие законопроекты были ослаблены,
+а часть инициатив так и не была реализована полностью.</p>
+</div>
+<div class="reform-block">
+<h4>Итоги</h4>
+<ul class="reform-list">
+<li>в России появилась система страхования рабочих;</li>
+<li>улучшились условия труда женщин и подростков;</li>
+<li>были легализованы профсоюзы;</li>
+<li>созданы механизмы разрешения трудовых споров.</li>
+</ul>
+<p class="reform-end">
+Несмотря на важные изменения,
+социальная напряжённость полностью снята не была,
+а многие проблемы рабочих сохранились.</p>
+</div>
+</div>
+</div>
+<div class="crisis-card" onclick="this.classList.toggle('open')">
+<h3>🌍 Национальный вопрос <span>+</span></h3>
+<div class="crisis-hidden">
+<div class="reform-block">
+<h4>Главные цели</h4>
+<ul class="reform-list">
+<li>укрепление единства государства;</li>
+<li>борьба с сепаратизмом;</li>
+<li>интеграция национальных окраин в общеимперское пространство;</li>
+<li>развитие образования и самоуправления в регионах;</li>
+<li>формирование лояльности к центральной власти.</li>
+</ul>
+</div>
+<div class="reform-block">
+<h4>Министерство национальностей</h4>
+<p>Столыпин предлагал создать специальное
+<span class="underline">Министерство национальностей</span>,
+которое должно было изучать культуру,
+традиции и особенности народов империи.</p>
+<p>Предполагалось, что все народы будут иметь
+равные права и обязанности,
+оставаясь верными России.</p>
+</div>
+<div class="reform-block">
+<h4>Политика в отношении евреев</h4>
+<p>Обсуждалось смягчение ограничений
+<span class="gold">черты оседлости</span>,
+а также расширение прав евреев
+в сфере образования и профессий.</p>
+<p>Однако серьёзные изменения
+не были реализованы
+из-за сопротивления консерваторов.</p>
+</div>
+<div class="reform-block">
+<h4>Западные губернии</h4>
+<p>В западных губерниях проводилась
+земская реформа <b>1911 года</b>,
+усиливавшая позиции русского населения.</p>
+<ul class="reform-list">
+<li>снижался имущественный ценз для русских землевладельцев;</li>
+<li>председатель и часть земства должны были быть русскими;</li>
+<li>создавались польская и русская избирательные курии.</li>
+</ul>
+</div>
+<div class="reform-block">
+<h4>Политика в Финляндии и Польше</h4>
+<p>Правительство ограничивало автономию Финляндии,
+передавая часть полномочий центральной власти.</p>
+<p>В <b>1912 году</b> была образована
+<span class="gold">Холмская губерния</span>,
+выведенная из состава Царства Польского.</p>
+</div>
+<div class="reform-block">
+<h4>«Столыпинский циркуляр»</h4>
+<p class="reform-note important">
+📅 <b>20 января 1910 года</b>
+был издан циркуляр,
+запрещавший национальные организации,
+которые могли поддерживать сепаратизм
+или угрожать общественному порядку.</p>
+</div>
+<div class="reform-block">
+<h4>Образование и культура</h4>
+<p>В национальных регионах расширялась сеть русских школ,
+поощрялось изучение русского языка
+и вовлечение местных элит
+в систему государственного управления.</p>
+</div>
+<div class="reform-block">
+<h4>Итоги политики</h4>
+<ul class="reform-list">
+<li>усилился контроль над окраинами империи;</li>
+<li>частично укрепилось влияние центральной власти;</li>
+<li>развивались образование и инфраструктура регионов;</li>
+<li>однако национальные противоречия полностью устранить не удалось.</li>
+</ul>
+<p class="reform-end">
+Политика Столыпина пыталась сочетать
+централизацию государства
+и сохранение многонационального характера империи,
+но многие проблемы остались нерешёнными.</p>
+</div>
+</div>
+</div>
+<div class="crisis-card" onclick="this.classList.toggle('open')">
+<h3>⛪ Вероисповедная политика <span>+</span></h3>
+<div class="crisis-hidden">
+<p class="reform-intro">
+Реформы были направлены на 
+расширение религиозной свободы, смягчение ограничений для конфессий и 
+укрепление единства государства при сохранении ведущей роли православия.</p>
+<h4>Основные меры</h4>
+<p><b>Расширение прав старообрядцев.</b><br>
+Старообрядцы получили больше гражданских прав, были отменены многие ограничения на государственную службу.</p>
+<p><b>Свобода перехода между вероисповеданиями.</b><br>
+Переход из православия в другое христианское исповедание перестал влечь гражданские ограничения и наказания.</p>
+<p><b>Поддержка религиозных общин.</b><br>
+Расширялись права католических, мусульманских и иных религиозных организаций.</p>
+<p><b>Указ 1906 года.</b><br>
+Был принят указ о порядке деятельности старообрядческих и сектантских общин, направленный на повышение их лояльности к государству.</p>
+<p><b>Ограничение произвола чиновников.</b><br>
+Циркуляр 1910 года запрещал местным властям самостоятельно вводить ограничения в религиозной сфере без согласования с МВД.</p>
+<h4>Позиция Столыпина</h4>
+<p>Столыпин выступал за расширение религиозной свободы, однако считал, что 
+государство должно сохранять контроль над политическими и гражданскими последствиями вероисповедных вопросов.</p>
+<p>При этом подчёркивалась особая роль 
+<span class="underline">Русской православной церкви</span> как основы государственной системы.</p>
+<h4>Проблемы и сопротивление</h4>
+<p>Реформы встретили сопротивление консервативных кругов, опасавшихся ослабления позиций православия и усиления либеральных настроений.</p>
+<p>Многие законопроекты так и не были окончательно приняты Государственным советом и Думой.</p>
+<p class="reform-note important">
+После смерти Столыпина в 1911 году политика правительства стала менее либеральной, а часть инициатив была свёрнута.</p>
+<p class="reform-end">
+Несмотря на ограниченные результаты, реформы Столыпина стали важным шагом к расширению вероисповедной свободы в Российской империи.</p>
+</div>
+</div>
+</div>
+<div class="crisis-gallery">
+<h2>Эпоха реформ</h2>
+<div class="gallery-grid">
+<div class="gallery-item">
+<img src="duma.jpg">
+<p>I Государственная дума</p>
+</div>
+<div class="gallery-item">
+<img src="revolusion.jpg">
+<p>Революция 1905 года</p>
+</div>
+<div class="gallery-item">
+<img src="armia.jpg">
+<p>Модернизация армии</p>
+</div>
+<div class="gallery-item">
+<img src="police.jpg">
+<p>Сыскная полиция</p>
+</div>
+</div>
+</div>
+<div class="crisis-fail">
+<h2>Почему реформы не были завершены?</h2>
+<div class="fail-grid">
+<div class="fail-card">
+<span>🔫</span>
+<h3>Убийство Столыпина</h3>
+<p>После гибели Столыпина в 1911 году реформы потеряли главного инициатора.</p>
+</div>
+<div class="fail-card">
+<span>⚔</span>
+<h3>Первая мировая война</h3>
+<p>С 1914 года ресурсы страны были направлены на войну, а реформы остановились.</p>
+</div>
+<div class="fail-card">
+<span>🏛</span>
+<h3>Сопротивление элит</h3>
+<p>Многие проекты блокировались Государственным советом и консерваторами.</p>
+</div>
+<div class="fail-card">
+<span>🔥</span>
+<h3>Социальная напряжённость</h3>
+<p>Общество оставалось расколотым, а революционные настроения сохранялись.</p>
+</div>
+</div>
+</div>
+<div class="final-quote">
+<p>«Вам нужны великие потрясения — нам нужна Великая Россия»</p>
+</div>
+</div>
+<div id="test" class="section">
+<div class="quiz-hero">
+<div class="quiz-overlay">
+<h1>ПРОВЕРЬ ЗНАНИЯ</h1>
+<div class="quiz-years">ЕГЭ • Практика • Интерактив</div>
+<p class="quiz-sub">Проверь знания по реформам П.А. Столыпина и подготовься к экзамену.</p>
+<div class="quiz-menu">
+<div class="quiz-card">
+<div class="quiz-icon">🟥</div>
+<h3>Ловушки ЕГЭ</h3>
+<p>Хитрые задания, типичные ошибки, даты и реальные форматы ЕГЭ.</p>
+<button onclick="showEgeQuiz()">Начать</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="ege" class="section">
+<h1>Ловушки ЕГЭ</h1>
+<div class="ege-card">
+<h3>Задание 1</h3>
+<p>Укажите мероприятие, относящееся к аграрной реформе П.А. Столыпина:</p>
+<div class="answers" data-result="result1">
+            <button onclick="checkAnswer(this, false, 'result1')">Создание Государственной думы</button>
+            <button onclick="checkAnswer(this, true, 'result1')">Разрешение выхода крестьян из общины</button>
+            <button onclick="checkAnswer(this, false, 'result1')">Отмена крепостного права</button>
+            <button onclick="checkAnswer(this, false, 'result1')">Учреждение Сената</button>
+        </div>
+        <p id="result1" class="result"></p>
+    </div>
+<div class="ege-card">
+        <h3>Задание 2</h3>
+        <p>Какие три из перечисленных реформ были осуществлены в царствование Николая II? Соответствующие цифры запишите в ответ.</p>
+        <div class="question-list">
+            <p>1. Реформа управления государственными крестьянами П.Д. Киселёва</p>
+            <p>2. Аграрная реформа П.А. Столыпина</p>
+            <p>3. Денежная реформа Е.Ф. Канкрина</p>
+            <p>4. Учреждение Государственной думы</p>
+            <p>5. Денежная реформа С.Ю. Витте</p>
+            <p>6. Создание Высшего совета народного хозяйства</p>
+        </div>
+        <div class="open-answer">
+            <p>Ваш ответ (три цифры через запятую или пробел):</p>
+            <input type="text" id="answer3" placeholder="Например: 1,3,5 или 135" class="answer-input">
+            <button onclick="checkTask3()">Проверить</button>
+        </div>       
+        <p id="result3" class="result"></p>
+        <div id="explanation3" class="explanation" style="display:none;"></div>
+    </div>
+<div class="ege-card">
+    <h3>Задание 3</h3>
+    <p>Что из перечисленного предусматривала столыпинская аграрная реформа?</p>   
+    <div class="question-list">
+        <p>1. Конфискацию помещичьих земель</p>
+        <p>2. Укрепление крестьянской общины</p>
+        <p>3. Отказ от переселенческой политики</p>
+        <p>4. Создание широкого слоя мелких земельных собственников</p>
+    </div>   
+    <div class="open-answer">
+        <p>Введите номер правильного ответа:</p>
+        <input type="text" id="answer4" placeholder="Например: 2" class="answer-input" style="max-width: 100px;">
+        <button onclick="checkTask4()">Проверить</button>
+    </div>    
+    <p id="result4" class="result"></p>
+    <div id="explanation4" class="explanation" style="display:none;"></div>
+</div>
+<div class="ege-card">
+    <h3>Задание 4</h3>
+    <p>В каком из перечисленных рядов названы имена современников?</p>
+    <div class="answers">
+        <button onclick="checkTask4answer(this, false)">1. А.Д. Меншиков, император Александр III</button>
+        <button onclick="checkTask4answer(this, false)">2. С.Ю. Витте, император Александр I</button>
+        <button onclick="checkTask4answer(this, true)">3. П.А. Столыпин, император Николай II</button>
+        <button onclick="checkTask4answer(this, false)">4. Г.А. Потемкин, император Петр I</button>
+    </div>
+    <p id="resultTask4" class="result"></p>
+    <div id="explanationTask4" class="explanation" style="display:none;"></div>
+</div>    
+<div class="ege-card">
+    <h3>Задание 5</h3>
+    <p>Прочтите отрывок из сочинения историка и укажите фамилию государственного деятеля, который был инициатором реформы, о которой говорится в отрывке.</p>
+    <div class="quote-block" style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 16px; margin: 15px 0; font-style: italic; border-left: 3px solid #38bdf8;">
+        «Во-первых, реформа не была кабинетной выдумкой, она исходила из практики наших народов. Во-вторых, несмотря на расхожее утверждение, что реформа потерпела крах, оно несостоятельно. Реформа не была закончена из-за войны и революции, но тем не менее за 10 лет выявились определённые, правда, не столь заметные, сдвиги к лучшему. В-третьих, не следует идеализировать реформу. Это капиталистическое развитие с его неизбежным расслоением, пауперизацией... Реформа вела к техническому подъёму земледелия».
+    </div>    
+    <div class="answers">
+        <button onclick="checkAnswer5(this, false)">1. С.Ю. Витте</button>
+        <button onclick="checkAnswer5(this, false)">2. В.Н. Коковцов</button>
+        <button onclick="checkAnswer5(this, false)">3. И.Л. Горемыкин</button>
+        <button onclick="checkAnswer5(this, true)">4. П.А. Столыпин</button>
+    </div>
+    <p id="result5" class="result"></p>
+    <div id="explanation5" class="explanation" style="display:none;"></div>
+</div>
+<div class="ege-card">
+    <h3>Задание 6</h3>
+    <p>Аграрная реформа П.А. Столыпина предполагала</p>
+    <div class="answers">
+        <button onclick="checkAnswer6(this, false)">1. Национализацию части помещичьей земли</button>
+        <button onclick="checkAnswer6(this, false)">2. Ограничение политики переселения крестьян</button>
+        <button onclick="checkAnswer6(this, false)">3. Развитие общинного землевладения</button>
+        <button onclick="checkAnswer6(this, true)">4. Образование отрубов и хуторских хозяйств</button>
+    </div>
+    <p id="result6" class="result"></p>
+</div>
+<div class="ege-card">
+    <h3>Задание 7</h3>
+    <p>Расположите в хронологической последовательности исторические события.</p>
+    <div class="question-list">
+        <p>А. начало аграрной реформы П.А. Столыпина</p>
+        <p>Б. Первая русская революция</p>
+        <p>В. убийство П.А. Столыпина</p>
+    </div>
+    <div class="open-answer">
+        <p>Введите правильную последовательность букв (например: АБВ):</p>
+        <input type="text" id="answer7" class="answer-input" style="max-width: 120px;">
+        <button onclick="checkTask7()">Проверить</button>
+    </div>    
+    <p id="result7" class="result"></p>
+</div>
+<div class="ege-card">
+    <h3>Задание 8</h3>
+    <p>Расположите в хронологической последовательности исторические события.</p>    
+    <div class="question-list">
+        <p>1. начало деятельности I Государственной думы</p>
+        <p>2. начало аграрной реформы П.А. Столыпина</p>
+        <p>3. Третьеиюньский переворот</p>
+    </div>    
+    <div class="open-answer">
+        <p>Введите правильную последовательность цифр:</p>
+        <input type="text" id="answer8" class="answer-input" style="max-width: 120px;">
+        <button onclick="checkTask8()">Проверить</button>
+    </div>    
+    <p id="result8" class="result"></p>
+</div>
+<div class="ege-card">
+    <h3>Задание 9</h3>
+    <p>Установите соответствие между процессами (явлениями, событиями) и фактами, относящимися к этим процессам (явлениям, событиям):</p>    
+    <div class="match-table">
+        <div class="match-col">
+            <h4>ПРОЦЕСС</h4>
+            <p>А) проведение аграрной реформы П.А. Столыпина</p>
+            <p>Б) переселенческая политика начала XX века</p>
+            <p>В) борьба правительства с революционным движением после революции 1905–1907 гг.</p>
+            <p>Г) развитие представительной системы в Российской империи начала XX века</p>
+        </div>
+        <div class="match-col">
+            <h4>ФАКТ</h4>
+            <p>1) создание военно-полевых судов</p>
+            <p>2) массовое переселение крестьян в Сибирь и на Дальний Восток</p>
+            <p>3) издание указа о праве выхода крестьян из общины</p>
+            <p>4) созыв Государственной думы</p>
+            <p>5) введение золотого стандарта рубля</p>
+            <p>6) отмена подушной подати</p>
+        </div>
+    </div>   
+    <div class="open-answer">
+        <p>Введите ответ в формате: А6 Б4 В1 Г3</p>
+        <input type="text" id="answer9" class="answer-input" style="max-width: 250px;">
+        <button onclick="checkTask9()">Проверить</button>
+    </div>    
+    <p id="result9" class="result"></p>
+</div>
+<div class="ege-card">
+    <h3>Задание 10</h3>
+    <p>Установите соответствие между датами и событиями (реформами) эпохи П.А. Столыпина:</p>    
+    <div class="match-table">
+        <div class="match-col">
+            <h4>ДАТЫ</h4>
+            <p>А) 1906 г.</p>
+            <p>Б) 1907 г.</p>
+            <p>В) 1910 г.</p>
+            <p>Г) 1911 г.</p>
+        </div>
+        <div class="match-col">
+            <h4>СОБЫТИЯ (РЕФОРМЫ)</h4>
+            <p>1) убийство П.А. Столыпина в Киеве</p>
+            <p>2) начало деятельности III Государственной думы</p>
+            <p>3) указ о праве свободного выхода крестьян из общины</p>
+            <p>4) закон о закреплении разрушения крестьянской общины</p>
+            <p>5) введение золотого стандарта рубля</p>
+            <p>6) создание Крестьянского поземельного банка</p>
+        </div>
+    </div>    
+    <div class="open-answer">
+        <p>Введите ответ в формате: А3 Б2 В4 Г1</p>
+        <input type="text" id="answer10" class="answer-input" style="max-width: 250px;">
+        <button onclick="checkTask10()">Проверить</button>
+    </div>    
+    <p id="result10" class="result"></p>
+</div>
+<div class="ege-card">
+    <h3>Задание 11</h3>
+    <p>Ниже приведён перечень терминов. Все они, за исключением одного, относятся к реформам П.А. Столыпина.</p>    
+    <div class="question-list">
+        <p>1. хутор</p>
+        <p>2. отруб</p>
+        <p>3. переселенческая политика</p>
+        <p>4. военно-полевые суды</p>
+        <p>5. продразвёрстка</p>
+        <p>6. разрушение крестьянской общины</p>
+    </div>    
+    <div class="open-answer">
+        <p>Введите номер термина, который относится к другой исторической эпохе:</p>
+        <input type="text" id="answer11" class="answer-input" style="max-width: 80px;">
+        <button onclick="checkTask11()">Проверить</button>
+    </div>    
+    <p id="result11" class="result"></p>
+</div>
+<div class="ege-card">
+    <h3>Задание 12</h3>
+    <p>Запишите термин в поле:</p>    
+    <div class="question-list">
+        <p>«Единый участок земли, выделенный крестьянину в частную собственность взамен множества разбросанных полос (чересполосицы), при этом жилой дом и двор крестьянина оставались в самой деревне»</p>
+    </div>   
+    <div class="open-answer">
+        <p>Ваш ответ:</p>
+        <input type="text" id="answer12" class="answer-input" style="max-width: 250px;">
+        <button onclick="checkTask12()">Проверить</button>
+    </div>
+    <p id="result12" class="result"></p>
+</div>
+<div class="ege-card">
+    <h3>Задание 13</h3>
+    <p>Выберите цели аграрной реформы П.А. Столыпина.</p>   
+    <div class="question-list">
+        <p>1. создание слоя крестьян-собственников, способных вести эффективное товарное хозяйство</p>
+        <p>2. сохранение крестьянской общины как основы сельского устройства России</p>
+        <p>3. повышение товарности и конкурентоспособности сельского хозяйства Российской империи</p>
+        <p>4. ликвидация частной собственности на землю и передача её государству</p>
+        <p>5. снижение социальной напряжённости в деревне и предотвращение новых революционных выступлений</p>
+        <p>6. уравнительное распределение земли между всеми крестьянами независимо от их хозяйственных успехов</p>
+        <p>7. стимулирование выхода крестьян из общины и закрепление земли в частную собственность</p>
+    </div>    
+    <div class="open-answer">
+        <p>Введите номера правильных ответов (в порядке возрастания, через запятую или пробел):</p>
+        <input type="text" id="answer14" class="answer-input" style="max-width: 250px;">
+        <button onclick="checkTask14()">Проверить</button>
+    </div>   
+    <p id="result14" class="result"></p>
+    <div id="explanation14" class="explanation" style="display:none;"></div>
+</div>
+<div class="ege-card">
+    <h3>Задание 14</h3>
+    <p>Выберите последствия аграрной реформы П.А. Столыпина.</p>    
+    <div class="question-list">
+        <p>1. усиление социального расслоения крестьянства: выделение слоя зажиточных крестьян (кулаков), ведущих товарное хозяйство, и увеличение числа малоземельных и бедных крестьян</p>
+        <p>2. полная ликвидация крестьянской общины на всей территории Российской империи уже к 1910 г.</p>
+        <p>3. рост числа индивидуальных крестьянских хозяйств (хуторов и отрубов), ориентированных на рынок и применение наёмного труда</p>
+        <p>4. массовое уничтожение помещичьего землевладения и передача всей земли крестьянам</p>
+        <p>5. активное переселение значительной части крестьян в малозаселённые районы Сибири, Казахстана и Дальнего Востока</p>
+        <p>6. резкое сокращение производства сельскохозяйственной продукции и падение экспорта зерна</p>
+        <p>7. увеличение товарности сельского хозяйства и рост экспорта зерна за границу</p>
+        <p>8. полное запрещение выхода крестьян из общины после 1911 г.</p>
+        <p>9. формирование устойчивой прослойки зажиточных крестьян, заинтересованных в сохранении частной собственности на землю</p>
+    </div>    
+    <div class="open-answer">
+        <p>Введите номера правильных ответов (в порядке возрастания, через запятую или пробел):</p>
+        <input type="text" id="answer15" class="answer-input" style="max-width: 300px;">
+        <button onclick="checkTask15()">Проверить</button>
+        <button onclick="showExplanation15()">Показать пояснение</button>
+    </div>   
+    <p id="result15" class="result"></p>
+    <div id="explanation15" class="explanation" style="display:none;"></div>
+</div>
+<div class="ege-card">
+    <h3>Задание 15</h3>
+    <p>Выберите цели реформ П.А. Столыпина в сфере образования.</p>
+    <div class="question-list">
+        <p>1. повышение грамотности населения Российской империи</p>
+        <p>2. подготовка квалифицированных специалистов для экономики страны</p>
+        <p>3. полная ликвидация университетов</p>
+        <p>4. введение всеобщего начального образования</p>
+        <p>5. сокращение числа учебных заведений</p>
+    </div>
+    <div class="open-answer">
+        <p>Введите номера правильных ответов (в порядке возрастания, через запятую или пробел):</p>
+        <input type="text" id="answer16" class="answer-input" style="max-width: 250px;">
+        <button onclick="checkTask16()">Проверить</button>
+    </div>    
+    <p id="result16" class="result"></p>
+</div>
+<div class="ege-card">
+    <h3>Задание 16</h3>
+    <p>Выберите мероприятия, относящиеся к реформам и преобразовательным проектам П.А. Столыпина.</p>  
+    <div class="question-list">
+        <p>1. распространение земского самоуправления на западные губернии Российской империи</p>
+        <p>2. расширение сети начальных школ и подготовка проекта всеобщего начального образования</p>
+        <p>3. создание военно-полевых судов для ускоренного рассмотрения дел о терроризме</p>
+        <p>4. введение восьмичасового рабочего дня</p>
+        <p>5. разработка мер по страхованию рабочих от несчастных случаев и болезней</p>
+        <p>6. создание Советов рабочих депутатов</p>
+        <p>7. реформирование полиции и усиление системы охраны общественного порядка</p>
+        <p>8. проект преобразований армии после опыта русско-японской войны</p>
+        <p>9. отмена частной собственности на землю</p>
+    </div>
+    <div class="open-answer">
+        <p>Введите номера правильных ответов (в порядке возрастания, через запятую или пробел):</p>
+<input type="text" id="answer17" class="answer-input" style="max-width: 300px;">
+<button onclick="checkTask17()">Проверить</button>
+<button onclick="showExplanation17()">Показать пояснение</button>
+</div>
+<p id="result17" class="result"></p>
+<div id="explanation17" class="explanation" style="display:none;"></div>
+</div>
+<div class="ege-card">
+    <h3>Задание 17 (по карте)</h3>
+    <p>На карте показаны основные направления переселенческой политики П.А. Столыпина (1906–1914). Проанализируйте карту и выполните задания.</p>
+    
+    <!-- КАРТА -->
+    <div class="map-quiz" style="margin: 20px 0; text-align: center;">
+        <img src="ege.jpg" 
+     alt="Карта переселенческой политики Столыпина" 
+     style="width: 100%; max-width: 450px; border-radius: 16px; border: 2px solid #facc15; cursor: pointer;"
+     onclick="this.requestFullscreen?.()">
+<p class="img-caption">📌 Кликните на карту, чтобы увеличить</p>
+    </div>
+    
+    <div class="question-list">
+        <p><strong>1. Какие три основных региона были главными направлениями переселенческой политики?</strong></p>
+        <p>А) Сибирь<br>Б) Кавказ<br>В) Дальний Восток<br>Г) Крым<br>Д) Средняя Азия (Казахстан)</p>
+        
+        <p><strong>2. Какое событие НЕ связано с переселенческой политикой Столыпина?</strong></p>
+        <p>А) предоставление переселенцам земельных наделов<br>Б) льготный проезд по железной дороге<br>В) создание «столыпинских вагонов»<br>Г) принудительное выселение крестьян в Сибирь</p>
+        
+        <p><strong>3. Укажите две основные причины, по которым часть переселенцев возвращалась обратно в European Россию:</strong></p>
+        <p>_________________________________<br>_________________________________</p>
+    </div>
+    
+    <div class="open-answer">
+        <p><strong>Ответ на задание 1</strong> (введите буквы через запятую или пробел):</p>
+        <input type="text" id="answerMap1" class="answer-input" style="max-width: 150px; margin-bottom: 15px;">
+        
+        <p><strong>Ответ на задание 2</strong> (введите букву):</p>
+        <input type="text" id="answerMap2" class="answer-input" style="max-width: 80px; margin-bottom: 15px;">
+        
+        <p><strong>Ответ на задание 3</strong> (две причины):</p>
+        <input type="text" id="answerMap3a" class="answer-input" placeholder="Причина 1" style="margin-bottom: 10px;">
+        <input type="text" id="answerMap3b" class="answer-input" placeholder="Причина 2">
+        
+        <button onclick="checkMapTaskCombined()" style="margin-top: 20px;">Проверить все ответы</button>
+        <button onclick="showMapFullExplanation()">Показать пояснение</button>
+    </div>
+    
+    <p id="resultMap" class="result"></p>
+    <div id="explanationMap" class="explanation" style="display:none;"></div>
+</div>
+ <div style="margin-top: 30px; text-align: center;">
+        <button onclick="showSection('test')" style="padding: 12px 24px; background: #38bdf8; border: none; border-radius: 12px; cursor: pointer;">← Вернуться к меню</button>
+    </div>
+</div>
+<!-- КНОПКА НАВЕРХ -->
+<button class="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+</main>
+<script>
+function showSection(id) {
+    document.querySelectorAll('.section').forEach(function(sec) {
+        sec.classList.remove('active');
+    });
+    const el = document.getElementById(id);
+    if (el) {
+        el.classList.add('active');
+    }
+}
+
+function showEgeQuiz() {
+    showSection('ege');
+}
+
+function checkAnswer(btn, isCorrect, resultId) {
+    const resultElement = document.getElementById(resultId);
+    if (isCorrect) {
+        resultElement.innerHTML = "✅ Верно!";
+        resultElement.style.color = "#22c55e";
+    } else {
+        resultElement.innerHTML = "❌ Неверно! Попробуй ещё раз.";
+        resultElement.style.color = "#ef4444";
+    }
+}
+// ========== НОВЫЙ КОД ДЛЯ ТЕРМИНОВ ==========
+document.addEventListener('DOMContentLoaded', function() {
+    const termCards = document.querySelectorAll('.term-card');
+    
+    termCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // Если этот уже открыт — закрываем его
+            if (this.classList.contains('open')) {
+                this.classList.remove('open');
+            } else {
+                // Закрываем ВСЕ остальные
+                termCards.forEach(other => {
+                    other.classList.remove('open');
+                });
+                // Открываем текущий
+                this.classList.add('open');
+            }
+        });
+    });
+});
+// ========== КНОПКА НАВЕРХ ==========
+window.addEventListener('scroll', function() {
+    const scrollBtn = document.querySelector('.scroll-top-btn');
+    if (scrollBtn) {
+        if (window.scrollY > 300) {
+            scrollBtn.classList.add('show');
+        } else {
+            scrollBtn.classList.remove('show');
+        }
+    }
+});
+function checkTask3() {
+    const userAnswer = document.getElementById('answer3').value.trim();
+    // Нормализуем ответ: убираем пробелы, запятые, точки, приводим к строке
+    let normalized = userAnswer.replace(/[,\s\.]/g, '');
+    // Сортируем цифры в ответе для сравнения
+    const correct = "245";
+    const userSorted = normalized.split('').sort().join('');
+    const correctSorted = correct.split('').sort().join('');
+    
+    const resultDiv = document.getElementById('result3');
+    const explanationDiv = document.getElementById('explanation3');
+    
+    if (userSorted === correctSorted && normalized.length === 3) {
+        resultDiv.innerHTML = "✅ Верно! Правильный ответ: 245";
+        resultDiv.style.color = "#22c55e";
+    } else {
+        resultDiv.innerHTML = "❌ Неверно!";
+        resultDiv.style.color = "#ef4444";
+    }
+    
+    explanationDiv.innerHTML = `
+        <strong>📖 Пояснение:</strong><br><br>
+        ✅ <strong>2</strong> — аграрная реформа П.А. Столыпина (1906–1911) — ДА, верно.<br>
+        ✅ <strong>4</strong> — учреждение Государственной думы (1905) — ДА, верно.<br>
+        ✅ <strong>5</strong> — денежная реформа С.Ю. Витте (1895–1897) — ДА, верно.<br><br>
+        ❌ <strong>1</strong> — реформа Киселёва — период Николая I (1837–1841).<br>
+        ❌ <strong>3</strong> — реформа Канкрина — период Николая I (1839–1843).<br>
+        ❌ <strong>6</strong> — создание ВСНХ — 1918 год, уже после Николая II.
+    `;
+    explanationDiv.style.display = "block";
+}
+function checkTask4() {
+    const userAnswer = document.getElementById('answer4').value.trim();
+    const resultDiv = document.getElementById('result4');
+    const explanationDiv = document.getElementById('explanation4');
+    
+    if (userAnswer === '4') {
+        resultDiv.innerHTML = "✅ Верно!";
+        resultDiv.style.color = "#22c55e";
+    } else {
+        resultDiv.innerHTML = "❌ Неверно!";
+        resultDiv.style.color = "#ef4444";
+    }
+    
+    explanationDiv.innerHTML = `
+                ❌ <strong>1</strong> — помещичьи земли не конфисковывались, они сохранялись<br>
+        ❌ <strong>2</strong> — реформа направлена на разрушение общины, а не её укрепление<br>
+        ❌ <strong>3</strong> — переселенческая политика была важной частью реформы<br>
+        ✅ <strong>4</strong> — создание мелких земельных собственников — главная цель реформы
+    `;
+    explanationDiv.style.display = "block";
+}
+function checkTask4answer(btn, isCorrect) {
+    const resultElement = document.getElementById('resultTask4');
+    const explanationDiv = document.getElementById('explanationTask4');
+    
+    // Сбрасываем стили всех кнопок в этом задании
+    const parentDiv = btn.parentElement;
+    const allButtons = parentDiv.querySelectorAll('button');
+    allButtons.forEach(button => {
+        button.style.background = "#1e293b";
+        button.style.color = "white";
+    });
+    
+    if (isCorrect) {
+        resultElement.innerHTML = "✅ Верно!";
+        resultElement.style.color = "#22c55e";
+        btn.style.background = "#22c55e";
+        btn.style.color = "black";
+        explanationDiv.innerHTML = `
+            <strong>📖 Пояснение:</strong><br><br>
+            ✅ <strong>3</strong> — П.А. Столыпин и император Николай II были современниками.<br><br>
+            ❌ <strong>1</strong> — А.Д. Меншиков — современник Петра I, а не Александра III.<br>
+            ❌ <strong>2</strong> — С.Ю. Витте — современник Николая II и Александра III, но не Александра I.<br>
+            ❌ <strong>4</strong> — Г.А. Потемкин — современник Екатерины II, а не Петра I.
+        `;
+        explanationDiv.style.display = "block";
+    } else {
+        resultElement.innerHTML = "❌ Неверно! Попробуй ещё раз.";
+        resultElement.style.color = "#ef4444";
+        btn.style.background = "#ef4444";
+        btn.style.color = "white";
+        explanationDiv.style.display = "none";
+    }
+}
+function checkAnswer5(btn, isCorrect) {
+    const resultElement = document.getElementById('result5');
+    
+    // Сбрасываем стили всех кнопок в этом задании
+    const parentDiv = btn.parentElement;
+    const allButtons = parentDiv.querySelectorAll('button');
+    allButtons.forEach(button => {
+        button.style.background = "#1e293b";
+        button.style.color = "white";
+    });
+    
+    if (isCorrect) {
+        resultElement.innerHTML = "✅ Верно!";
+        resultElement.style.color = "#22c55e";
+        btn.style.background = "#22c55e";
+        btn.style.color = "black";
+    } else {
+        resultElement.innerHTML = "❌ Неверно! Попробуй ещё раз.";
+        resultElement.style.color = "#ef4444";
+        btn.style.background = "#ef4444";
+        btn.style.color = "white";
+    }
+}
+function checkAnswer6(btn, isCorrect) {
+    const resultElement = document.getElementById('result6');
+    
+    const parentDiv = btn.parentElement;
+    const allButtons = parentDiv.querySelectorAll('button');
+    allButtons.forEach(button => {
+        button.style.background = "#1e293b";
+        button.style.color = "white";
+    });
+    
+    if (isCorrect) {
+        resultElement.innerHTML = "✅ Верно!";
+        resultElement.style.color = "#22c55e";
+        btn.style.background = "#22c55e";
+        btn.style.color = "black";
+    } else {
+        resultElement.innerHTML = "❌ Неверно! Попробуй ещё раз.";
+        resultElement.style.color = "#ef4444";
+        btn.style.background = "#ef4444";
+        btn.style.color = "white";
+    }
+}
+function checkTask7() {
+    const userAnswer = document.getElementById('answer7').value.trim().toUpperCase();
+    const resultDiv = document.getElementById('result7');
+    
+    const correct = "БАВ";
+    
+    if (userAnswer === correct) {
+        resultDiv.innerHTML = "✅ Верно! Правильная последовательность: Б (Первая русская революция 1905–1907) → А (начало реформы 1906) → В (убийство 1911)";
+        resultDiv.style.color = "#22c55e";
+    } else {
+        resultDiv.innerHTML = "❌ Неверно! Попробуй ещё раз.";
+        resultDiv.style.color = "#ef4444";
+    }
+}
+function checkTask8() {
+    const userAnswer = document.getElementById('answer8').value.trim();
+    const resultDiv = document.getElementById('result8');
+    
+    if (userAnswer === "123") {
+        resultDiv.innerHTML = "✅ Верно!";
+        resultDiv.style.color = "#22c55e";
+    } else {
+        resultDiv.innerHTML = "❌ Неверно!";
+        resultDiv.style.color = "#ef4444";
+    }
+}
+function checkTask9() {
+    const userAnswer = document.getElementById('answer9').value.trim().toUpperCase().replace(/\s/g, '');
+    const resultDiv = document.getElementById('result9');
+    
+    const correct = "А3Б2В1Г4";
+    
+    if (userAnswer === correct) {
+        resultDiv.innerHTML = "✅ Верно!";
+        resultDiv.style.color = "#22c55e";
+    } else {
+        resultDiv.innerHTML = "❌ Неверно! Правильный ответ: А3 Б2 В1 Г4";
+        resultDiv.style.color = "#ef4444";
+    }
+}
+function checkTask10() {
+    const userAnswer = document.getElementById('answer10').value.trim().toUpperCase().replace(/\s/g, '');
+    const resultDiv = document.getElementById('result10');
+    
+    const correct = "А3Б2В4Г1";
+    
+    if (userAnswer === correct) {
+        resultDiv.innerHTML = "✅ Верно!";
+        resultDiv.style.color = "#22c55e";
+    } else {
+        resultDiv.innerHTML = "❌ Неверно! Правильный ответ: А3 Б2 В4 Г1";
+        resultDiv.style.color = "#ef4444";
+    }
+}
+
+function checkTask11() {
+    const userAnswer = document.getElementById('answer11').value.trim();
+    const resultDiv = document.getElementById('result11');
+    
+    if (userAnswer === "5") {
+        resultDiv.innerHTML = "✅ Верно!";
+        resultDiv.style.color = "#22c55e";
+    } else {
+        resultDiv.innerHTML = "❌ Неверно! Правильный ответ: 5 (продразвёрстка)";
+        resultDiv.style.color = "#ef4444";
+    }
+}
+function checkTask12() {
+    const userAnswer = document.getElementById('answer12').value.trim().toLowerCase();
+    const resultDiv = document.getElementById('result12');
+    
+    if (userAnswer === "отруб") {
+        resultDiv.innerHTML = "✅ Верно!";
+        resultDiv.style.color = "#22c55e";
+    } else {
+        resultDiv.innerHTML = "❌ Неверно! Правильный ответ: отруб";
+        resultDiv.style.color = "#ef4444";
+    }
+}
+function checkTask14() {
+    const userAnswer = document.getElementById('answer14').value.trim().replace(/[,\s]/g, '');
+    const resultDiv = document.getElementById('result14');
+    const explanationDiv = document.getElementById('explanation14');
+    
+    const correct = "1357";
+    const userSorted = userAnswer.split('').sort().join('');
+    const correctSorted = correct.split('').sort().join('');
+    
+    if (userSorted === correctSorted && userAnswer.length === 4) {
+        resultDiv.innerHTML = "✅ Верно!";
+        resultDiv.style.color = "#22c55e";
+    } else {
+        resultDiv.innerHTML = "❌ Неверно! Попробуй ещё раз.";
+        resultDiv.style.color = "#ef4444";
+    }
+    
+    explanationDiv.innerHTML = `
+        <strong>📖 Пояснение:</strong><br><br>
+        ✅ <strong>1</strong> — создание слоя крестьян-собственников (главная цель реформы)<br>
+        ✅ <strong>3</strong> — повышение товарности и конкурентоспособности сельского хозяйства<br>
+        ✅ <strong>5</strong> — снижение социальной напряжённости в деревне<br>
+        ✅ <strong>7</strong> — стимулирование выхода крестьян из общины<br><br>
+        ❌ <strong>2</strong> — реформа направлена на разрушение общины, а не её сохранение<br>
+        ❌ <strong>4</strong> — частная собственность не ликвидировалась, а создавалась<br>
+        ❌ <strong>6</strong> — реформа делала ставку на сильных хозяев, а не на уравниловку
+    `;
+    explanationDiv.style.display = "block";
+}
+function checkTask15() {
+    const userAnswer = document.getElementById('answer15').value.trim().replace(/[,\s]/g, '');
+    const resultDiv = document.getElementById('result15');
+    
+    const correct = "13579";
+    const userSorted = userAnswer.split('').sort().join('');
+    const correctSorted = correct.split('').sort().join('');
+    
+    if (userSorted === correctSorted && userAnswer.length === 5) {
+        resultDiv.innerHTML = "✅ Верно!";
+        resultDiv.style.color = "#22c55e";
+    } else {
+        resultDiv.innerHTML = "❌ Неверно! Нажмите «Показать пояснение», чтобы разобрать ошибки.";
+        resultDiv.style.color = "#ef4444";
+    }
+}
+
+function showExplanation15() {
+    const explanationDiv = document.getElementById('explanation15');
+    explanationDiv.innerHTML = `
+        <strong>📖 Правильные ответы: 1, 3, 5, 7, 9</strong><br><br>
+        
+        ✅ <strong>1</strong> — усилилось социальное расслоение крестьянства<br>
+        ✅ <strong>3</strong> — выросло число хуторов и отрубов<br>
+        ✅ <strong>5</strong> — активное переселение крестьян в Сибирь и на Дальний Восток<br>
+        ✅ <strong>7</strong> — увеличилась товарность сельского хозяйства и вырос экспорт зерна<br>
+        ✅ <strong>9</strong> — сформировалась прослойка зажиточных крестьян<br><br>
+        
+        <strong>⚠️ Ловушки ЕГЭ (остальные варианты — НЕВЕРНЫЕ):</strong><br><br>
+        
+        ❌ <strong>2)</strong> полная ликвидация крестьянской общины на всей территории Российской империи уже к 1910 г.<br>
+        &nbsp;&nbsp;&nbsp;Неверно, потому что община не была полностью уничтожена. Более 65% крестьян остались в общине,<br>
+        &nbsp;&nbsp;&nbsp;а реформа не успела завершиться.<br><br>
+        
+        ❌ <strong>4)</strong> массовое уничтожение помещичьего землевладения и передача всей земли крестьянам<br>
+        &nbsp;&nbsp;&nbsp;Неверно, это больше похоже на программу эсеров или события после Октябрьской революции.<br>
+        &nbsp;&nbsp;&nbsp;Столыпин не ставил цель ликвидировать помещиков.<br><br>
+        
+        ❌ <strong>6)</strong> резкое сокращение производства сельскохозяйственной продукции и падение экспорта зерна<br>
+        &nbsp;&nbsp;&nbsp;Неверно. Напротив, сельское хозяйство в целом развивалось: увеличивались посевные площади<br>
+        &nbsp;&nbsp;&nbsp;и экспорт зерна вырос на 30%.<br><br>
+        
+        ❌ <strong>8)</strong> полное запрещение выхода крестьян из общины после 1911 г.<br>
+        &nbsp;&nbsp;&nbsp;Неверно. Реформа как раз поощряла выход из общины и закрепление земли в частную собственность.
+    `;
+    explanationDiv.style.display = "block";
+}
+function checkTask16() {
+    const userAnswer = document.getElementById('answer16').value.trim().replace(/[,\s]/g, '');
+    const resultDiv = document.getElementById('result16');
+    
+    const correct = "124";
+    const userSorted = userAnswer.split('').sort().join('');
+    const correctSorted = correct.split('').sort().join('');
+    
+    if (userSorted === correctSorted && userAnswer.length === 3) {
+        resultDiv.innerHTML = "✅ Верно!";
+        resultDiv.style.color = "#22c55e";
+    } else {
+        resultDiv.innerHTML = "❌ Неверно!";
+        resultDiv.style.color = "#ef4444";
+    }
+}
+function checkTask17() {
+    const userAnswer = document.getElementById('answer17').value.trim().replace(/[,\s]/g, '');
+    const resultDiv = document.getElementById('result17');
+    
+    const correct = "123578";
+    const userSorted = userAnswer.split('').sort().join('');
+    const correctSorted = correct.split('').sort().join('');
+    
+    if (userSorted === correctSorted && userAnswer.length === 6) {
+        resultDiv.innerHTML = "✅ Верно!";
+        resultDiv.style.color = "#22c55e";
+    } else {
+        resultDiv.innerHTML = "❌ Неверно! Нажмите «Показать пояснение», чтобы разобрать ошибки.";
+        resultDiv.style.color = "#ef4444";
+    }
+}
+
+function showExplanation17() {
+    const explanationDiv = document.getElementById('explanation17');
+    explanationDiv.innerHTML = `
+        <strong>📖 Правильные ответы: 1, 2, 3, 5, 7, 8</strong><br><br>
+        
+        ✅ <strong>1</strong> — распространение земского самоуправления на западные губернии — относится к реформаторским проектам Столыпина. Он стремился расширить систему местного самоуправления.<br><br>
+        
+        ✅ <strong>2</strong> — расширение сети начальных школ и подготовка проекта всеобщего начального образования — относится к образовательным реформам. Планировалось постепенное введение всеобщего начального обучения.<br><br>
+        
+        ✅ <strong>3</strong> — создание военно-полевых судов для ускоренного рассмотрения дел о терроризме — относится к антикризисной политике Столыпина после революции 1905–1907 гг.<br><br>
+        
+        ❌ <strong>4</strong> — введение восьмичасового рабочего дня — не относится к деятельности Столыпина. В Российской империи такой закон тогда не был принят.<br><br>
+        
+        ✅ <strong>5</strong> — разработка мер по страхованию рабочих от несчастных случаев и болезней — относится к проектам в сфере трудовых отношений.<br><br>
+        
+        ❌ <strong>6</strong> — создание Советов рабочих депутатов — не связано со Столыпиным. Советы возникли во время революции 1905 года как органы революционного движения.<br><br>
+        
+        ✅ <strong>7</strong> — реформирование полиции и усиление системы охраны общественного порядка — являлось частью политики по укреплению государственного порядка.<br><br>
+        
+        ✅ <strong>8</strong> — проект преобразований армии после опыта русско-японской войны — проводились меры по совершенствованию армии и её структуры.<br><br>
+        
+        ❌ <strong>9</strong> — отмена частной собственности на землю — прямо противоречит политике Столыпина. Он, наоборот, стремился укрепить частную собственность крестьян на землю.
+    `;
+    explanationDiv.style.display = "block";
+}
+function checkMapTaskCombined() {
+    const answer1 = document.getElementById('answerMap1').value.trim().toUpperCase().replace(/[,\s]/g, '');
+    const answer2 = document.getElementById('answerMap2').value.trim().toUpperCase();
+    const answer3a = document.getElementById('answerMap3a').value.trim().toLowerCase();
+    const answer3b = document.getElementById('answerMap3b').value.trim().toLowerCase();
+    
+    const correct1 = "АВД";
+    const correct2 = "Г";
+    
+    let score = 0;
+    let resultText = "";
+    
+    // Проверка задания 1
+    const userSorted1 = answer1.split('').sort().join('');
+    if (userSorted1 === correct1.split('').sort().join('') && answer1.length === 3) {
+        score++;
+        resultText += "✅ Задание 1: Верно!\n";
+    } else {
+        resultText += "❌ Задание 1: Неверно. Правильный ответ: А, В, Д (Сибирь, Дальний Восток, Средняя Азия)\n";
+    }
+    
+    // Проверка задания 2
+    if (answer2 === correct2) {
+        score++;
+        resultText += "✅ Задание 2: Верно!\n";
+    } else {
+        resultText += "❌ Задание 2: Неверно. Правильный ответ: Г (переселение было добровольным, а не принудительным)\n";
+    }
+    
+    // Проверка задания 3 (по ключевым словам)
+    let keywords3a = ["климат", "суровый", "холод", "болезни", "непривычный", "трудно"];
+    let keywords3b = ["не получил", "земля", "надел", "не хватило", "вернулся", "домой", "хозяйство", "не устроил", "тоска"];
+    
+    let check3a = keywords3a.some(keyword => answer3a.includes(keyword));
+    let check3b = keywords3b.some(keyword => answer3b.includes(keyword));
+    
+    if (check3a && answer3a.length > 5) {
+        score++;
+        resultText += "✅ Задание 3 (причина 1): Верно!\n";
+    } else {
+        resultText += "❌ Задание 3 (причина 1): Нужно добавить про суровый климат или трудности адаптации\n";
+    }
+    
+    if (check3b && answer3b.length > 5) {
+        score++;
+        resultText += "✅ Задание 3 (причина 2): Верно!\n";
+    } else {
+        resultText += "❌ Задание 3 (причина 2): Нужно добавить про нехватку земли или тоску по родине\n";
+    }
+    
+    const resultDiv = document.getElementById('resultMap');
+    resultDiv.innerHTML = resultText.replace(/\n/g, '<br>') + `<br><strong>Итого: ${score}/4</strong>`;
+    if (score === 4) {
+        resultDiv.style.color = "#22c55e";
+    } else {
+        resultDiv.style.color = "#facc15";
+    }
+}
+
+function showMapFullExplanation() {
+    const explanationDiv = document.getElementById('explanationMap');
+    explanationDiv.innerHTML = `
+        <strong>📖 Правильные ответы:</strong><br><br>
+        
+        <strong>Задание 1:</strong> А, В, Д — Сибирь, Дальний Восток и Средняя Азия (Казахстан)<br>
+        • За 1906–1914 гг. за Урал переселилось около 3,5 млн человек<br>
+        • Основной поток шёл в Сибирь (Тобольская, Томская, Енисейская губернии)<br>
+        • На Дальний Восток (Амурская область, Приморье)<br>
+        • В Среднюю Азию (Акмолинская, Семипалатинская области)<br><br>
+        
+        <strong>Задание 2:</strong> Г — переселение было добровольным, крестьян не выселяли принудительно<br><br>
+        
+        <strong>Задание 3 (возможные варианты ответа):</strong><br>
+        • Суровый климат и непривычные природные условия<br>
+        • Болезни и высокая смертность среди переселенцев<br>
+        • Нехватка земли или плохое качество выделенных наделов<br>
+        • Не получили обещанной помощи от государства<br>
+        • Тоска по родине и невозможность адаптироваться<br><br>
+        
+        <strong>⚠️ Факт:</strong> Около 17% переселенцев (более 500 тыс. человек) вернулись обратно в Европейскую Россию.
+    `;
+    explanationDiv.style.display = "block";
+}
+</script>
+</body>
+</html>
